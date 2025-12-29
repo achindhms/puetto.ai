@@ -1,0 +1,1248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Puetto – AI-Enabled Agency for Startups</title>
+<style>
+/* Reset & Base */
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+body {
+font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+background: #e8e8e8;
+overflow-x: hidden;
+color: #1a1a1a;
+}
+
+/* Navigation */
+nav {
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 20px 60px;
+background: #e8e8e8;
+}
+.logo {
+display: flex;
+align-items: center;
+}
+.logo-image {
+height: 68px;
+width: auto;
+display: block;
+}
+.nav-center {
+position: absolute;
+left: 50%;
+transform: translateX(-50%);
+display: flex;
+gap: 35px;
+align-items: center;
+}
+.nav-center a {
+font-size: 15px;
+font-weight: 500;
+color: #4a4a4a;
+text-decoration: none;
+transition: color .3s;
+}
+.nav-center a:hover {
+color: #1a1a1a;
+}
+.nav-right {
+display: flex;
+gap: 12px;
+}
+button {
+cursor: pointer;
+transition: all .3s;
+border: none;
+}
+.contact-btn {
+background: #fff;
+padding: 10px 22px;
+border-radius: 8px;
+box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+font-weight: 600;
+font-size: 14px;
+color: #1a1a1a;
+}
+.contact-btn:hover {
+box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+.demo-btn {
+background: #ff4d1a;
+padding: 10px 24px;
+border-radius: 8px;
+font-size: 14px;
+font-weight: 600;
+color: #fff;
+}
+.demo-btn:hover {
+background: #e63d0a;
+}
+
+/* Hero */
+.hero-section {
+text-align: center;
+padding: 120px 20px 80px;
+background: #e8e8e8;
+}
+.hero-section h1 {
+font-size: 72px;
+font-weight: 700;
+color: #1a1a1a;
+line-height: 1.1;
+margin-bottom: 24px;
+}
+.hero-highlight {
+font-size: 72px;
+font-weight: 700;
+color: #ff4d1a;
+font-style: italic;
+margin-bottom: 24px;
+}
+.hero-subtitle {
+font-size: 20px;
+color: #555;
+max-width: 800px;
+margin: 0 auto 40px;
+line-height: 1.6;
+font-weight: 400;
+}
+.hero-buttons {
+display: flex;
+gap: 15px;
+justify-content: center;
+margin-bottom: 60px;
+}
+.get-started-btn {
+background: #ff4d1a;
+padding: 16px 36px;
+border-radius: 8px;
+font-size: 16px;
+font-weight: 600;
+color: #fff;
+}
+.get-started-btn:hover {
+background: #e63d0a;
+transform: translateY(-2px);
+}
+.learn-more-btn {
+background: #fff;
+padding: 16px 36px;
+border-radius: 8px;
+font-size: 16px;
+font-weight: 600;
+color: #1a1a1a;
+box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+.learn-more-btn:hover {
+box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+transform: translateY(-2px);
+}
+
+/* Service Cards */
+.services-section {
+background: #e8e8e8;
+padding: 0 40px 100px;
+}
+.services-container {
+display: flex;
+justify-content: center;
+gap: 20px;
+flex-wrap: wrap;
+max-width: 1600px;
+margin: 0 auto;
+}
+.service-card {
+background: #fff;
+border-radius: 20px;
+width: 280px;
+min-width: 280px;
+box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+overflow: hidden;
+transition: transform .3s, box-shadow .3s;
+}
+.service-card:hover {
+transform: translateY(-8px);
+box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+}
+.card-icon-section {
+position: relative;
+background: #1f1f1f;
+height: 180px;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+.icon-wrapper {
+width: 90px;
+height: 90px;
+background: #2d2d2d;
+border-radius: 16px;
+display: flex;
+align-items: center;
+justify-content: center;
+z-index: 2;
+}
+.icon-wrapper svg {
+width: 50px;
+height: 50px;
+fill: #ff4d1a;
+}
+.card-content {
+padding: 28px 24px;
+}
+.card-title {
+font-size: 22px;
+font-weight: 700;
+color: #1a1a1a;
+margin-bottom: 12px;
+line-height: 1.3;
+}
+.card-description {
+font-size: 14px;
+color: #666;
+line-height: 1.6;
+margin-bottom: 20px;
+}
+.card-features {
+list-style: none;
+padding: 0;
+margin: 0;
+}
+.card-features li {
+font-size: 13px;
+color: #555;
+padding: 6px 0;
+padding-left: 20px;
+position: relative;
+}
+.card-features li:before {
+content: '✓';
+position: absolute;
+left: 0;
+color: #ff4d1a;
+font-weight: 700;
+}
+
+/* AI Adoption Section */
+.ai-section {
+background: #1a1a1a;
+color: #fff;
+padding: 100px 60px;
+text-align: center;
+}
+.ai-section h2 {
+font-size: 48px;
+font-weight: 700;
+margin-bottom: 20px;
+}
+.ai-section .subtitle {
+font-size: 18px;
+color: #ccc;
+max-width: 700px;
+margin: 0 auto 60px;
+line-height: 1.6;
+}
+.process-flow {
+display: flex;
+justify-content: center;
+gap: 40px;
+flex-wrap: wrap;
+max-width: 900px;
+margin: 0 auto;
+}
+.process-step {
+background: #2d2d2d;
+border-radius: 16px;
+padding: 32px 28px;
+width: 240px;
+text-align: center;
+position: relative;
+}
+.process-step:not(:last-child):after {
+content: '→';
+position: absolute;
+right: -30px;
+top: 50%;
+transform: translateY(-50%);
+font-size: 28px;
+color: #ff4d1a;
+}
+.step-number {
+width: 50px;
+height: 50px;
+background: #ff4d1a;
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 24px;
+font-weight: 700;
+margin: 0 auto 16px;
+}
+.step-title {
+font-size: 20px;
+font-weight: 600;
+margin-bottom: 8px;
+}
+.step-desc {
+font-size: 14px;
+color: #aaa;
+}
+
+/* Pricing Section */
+.pricing-section {
+background: #f5f5f5;
+padding: 100px 60px;
+text-align: center;
+}
+.pricing-section h2 {
+font-size: 48px;
+font-weight: 700;
+margin-bottom: 20px;
+color: #1a1a1a;
+}
+.pricing-section .subtitle {
+font-size: 18px;
+color: #666;
+margin-bottom: 60px;
+}
+.pricing-cards {
+display: flex;
+justify-content: center;
+gap: 32px;
+flex-wrap: wrap;
+max-width: 1200px;
+margin: 0 auto;
+}
+.pricing-card {
+background: #fff;
+border-radius: 20px;
+padding: 40px 32px;
+width: 380px;
+box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+transition: transform .3s;
+}
+.pricing-card:hover {
+transform: translateY(-8px);
+}
+.pricing-card.featured {
+border: 3px solid #ff4d1a;
+position: relative;
+}
+.featured-badge {
+position: absolute;
+top: -15px;
+left: 50%;
+transform: translateX(-50%);
+background: #ff4d1a;
+color: #fff;
+padding: 6px 20px;
+border-radius: 20px;
+font-size: 12px;
+font-weight: 700;
+text-transform: uppercase;
+}
+.pricing-title {
+font-size: 24px;
+font-weight: 700;
+margin-bottom: 16px;
+color: #1a1a1a;
+}
+.pricing-amount {
+font-size: 48px;
+font-weight: 700;
+color: #ff4d1a;
+margin-bottom: 8px;
+}
+.pricing-period {
+font-size: 14px;
+color: #999;
+margin-bottom: 32px;
+}
+.pricing-features {
+list-style: none;
+margin: 0 0 32px 0;
+padding: 0;
+text-align: left;
+}
+.pricing-features li {
+padding: 12px 0;
+font-size: 15px;
+color: #555;
+border-bottom: 1px solid #f0f0f0;
+padding-left: 28px;
+position: relative;
+}
+.pricing-features li:before {
+content: '✓';
+position: absolute;
+left: 0;
+color: #ff4d1a;
+font-weight: 700;
+font-size: 18px;
+}
+.pricing-btn {
+width: 100%;
+padding: 14px;
+border-radius: 8px;
+font-size: 16px;
+font-weight: 600;
+background: #1a1a1a;
+color: #fff;
+}
+.pricing-btn:hover {
+background: #333;
+}
+
+/* Benefits Section */
+.benefits-section {
+background: #e8e8e8;
+padding: 100px 60px;
+}
+.benefits-container {
+max-width: 1200px;
+margin: 0 auto;
+text-align: center;
+}
+.benefits-container h2 {
+font-size: 48px;
+font-weight: 700;
+margin-bottom: 60px;
+color: #1a1a1a;
+}
+.benefits-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+gap: 32px;
+}
+.benefit-item {
+background: #fff;
+border-radius: 16px;
+padding: 32px;
+box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+transition: transform .3s;
+}
+.benefit-item:hover {
+transform: translateY(-5px);
+}
+.benefit-icon {
+width: 60px;
+height: 60px;
+background: #ff4d1a;
+border-radius: 12px;
+display: flex;
+align-items: center;
+justify-content: center;
+margin: 0 auto 20px;
+font-size: 28px;
+}
+.benefit-title {
+font-size: 20px;
+font-weight: 600;
+margin-bottom: 12px;
+color: #1a1a1a;
+}
+.benefit-desc {
+font-size: 15px;
+color: #666;
+line-height: 1.6;
+}
+
+/* Process Section */
+.process-section {
+background: #fff;
+padding: 100px 60px;
+}
+.process-container {
+max-width: 1200px;
+margin: 0 auto;
+}
+.process-container h2 {
+font-size: 48px;
+font-weight: 700;
+text-align: center;
+margin-bottom: 20px;
+color: #1a1a1a;
+}
+.process-subtitle {
+font-size: 18px;
+color: #666;
+text-align: center;
+margin-bottom: 60px;
+max-width: 700px;
+margin-left: auto;
+margin-right: auto;
+}
+.process-timeline {
+position: relative;
+padding-left: 60px;
+}
+.process-timeline:before {
+content: '';
+position: absolute;
+left: 20px;
+top: 0;
+width: 4px;
+height: 100%;
+background: #ff4d1a;
+}
+.timeline-item {
+position: relative;
+margin-bottom: 50px;
+}
+.timeline-dot {
+position: absolute;
+left: -50px;
+top: 5px;
+width: 40px;
+height: 40px;
+background: #ff4d1a;
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+color: #fff;
+font-weight: 700;
+font-size: 18px;
+}
+.timeline-content {
+background: #f9f9f9;
+border-radius: 12px;
+padding: 28px;
+}
+.timeline-title {
+font-size: 24px;
+font-weight: 700;
+margin-bottom: 8px;
+color: #1a1a1a;
+}
+.timeline-desc {
+font-size: 15px;
+color: #666;
+line-height: 1.6;
+}
+
+/* Team Section */
+.team-section {
+background: linear-gradient(135deg, #1a0a3e 0%, #2d1b4e 50%, #1a0a3e 100%);
+color: #fff;
+padding: 100px 60px;
+position: relative;
+overflow: hidden;
+}
+.team-content {
+max-width: 1400px;
+margin: 0 auto;
+display: flex;
+align-items: center;
+justify-content: space-between;
+gap: 60px;
+position: relative;
+z-index: 2;
+}
+.team-text {
+flex: 1;
+max-width: 600px;
+}
+.team-badge {
+background: #ff6b35;
+color: #fff;
+padding: 8px 20px;
+border-radius: 20px;
+font-size: 12px;
+font-weight: 700;
+text-transform: uppercase;
+margin-bottom: 24px;
+letter-spacing: 0.5px;
+}
+.team-section h2 {
+font-size: 56px;
+font-weight: 700;
+margin-bottom: 20px;
+line-height: 1.2;
+}
+.team-section p {
+font-size: 18px;
+color: #d4c8e8;
+line-height: 1.7;
+margin-bottom: 32px;
+}
+.team-cta-btn {
+background: #8b5cf6;
+color: #fff;
+padding: 14px 32px;
+border-radius: 8px;
+font-size: 16px;
+font-weight: 600;
+border: none;
+cursor: pointer;
+transition: all .3s;
+display: inline-flex;
+align-items: center;
+gap: 8px;
+}
+.team-cta-btn:after {
+content: '→';
+font-size: 18px;
+transition: transform .3s;
+}
+.team-cta-btn:hover {
+background: #7c3aed;
+transform: translateX(5px);
+}
+.team-cta-btn:hover:after {
+transform: translateX(5px);
+}
+.team-visual {
+flex: 1;
+position: relative;
+min-height: 400px;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+.team-illustration {
+position: relative;
+width: 100%;
+max-width: 500px;
+height: 400px;
+}
+.flow-shape {
+position: absolute;
+width: 100%;
+height: 100%;
+background: linear-gradient(135deg, #8b5cf6 0%, #ec4899 50%, #f59e0b 100%);
+border-radius: 50% 40% 60% 50% / 50% 60% 40% 50%;
+opacity: 0.9;
+filter: blur(1px);
+animation: float 6s ease-in-out infinite;
+}
+.flow-shape:before {
+content: '';
+position: absolute;
+top: 10%;
+left: 10%;
+width: 80%;
+height: 80%;
+background: linear-gradient(225deg, #fbbf24 0%, #f472b6 50%, #a78bfa 100%);
+border-radius: 40% 50% 50% 40% / 60% 40% 60% 50%;
+opacity: 0.8;
+animation: float 8s ease-in-out infinite reverse;
+}
+.flow-accent {
+position: absolute;
+top: 20%;
+right: 10%;
+width: 60px;
+height: 60px;
+background: #fbbf24;
+border-radius: 50%;
+opacity: 0.6;
+filter: blur(20px);
+animation: pulse 3s ease-in-out infinite;
+}
+.flow-accent:nth-child(2) {
+top: 60%;
+left: 15%;
+width: 80px;
+height: 80px;
+background: #ec4899;
+animation-delay: 1s;
+}
+@keyframes float {
+0%, 100% {
+transform: translateY(0) rotate(0deg) scale(1);
+border-radius: 50% 40% 60% 50% / 50% 60% 40% 50%;
+}
+33% {
+transform: translateY(-20px) rotate(5deg) scale(1.05);
+border-radius: 40% 50% 40% 60% / 60% 50% 60% 40%;
+}
+66% {
+transform: translateY(-10px) rotate(-3deg) scale(0.98);
+border-radius: 60% 40% 50% 40% / 40% 60% 50% 60%;
+}
+}
+@keyframes pulse {
+0%, 100% {
+transform: scale(1);
+opacity: 0.6;
+}
+50% {
+transform: scale(1.2);
+opacity: 0.8;
+}
+}
+.team-section:before {
+content: '';
+position: absolute;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+background:
+radial-gradient(circle at 30% 50%, rgba(139,92,246,0.3) 0%, transparent 50%),
+radial-gradient(circle at 70% 50%, rgba(236,72,153,0.2) 0%, transparent 50%);
+z-index: 1;
+}
+
+/* CTA Section */
+.cta-section {
+background: #ff4d1a;
+color: #fff;
+padding: 80px 60px;
+text-align: center;
+}
+.cta-section h2 {
+font-size: 42px;
+font-weight: 700;
+margin-bottom: 20px;
+}
+.cta-section p {
+font-size: 18px;
+margin-bottom: 32px;
+opacity: .9;
+}
+.cta-btn {
+background: #fff;
+color: #ff4d1a;
+padding: 16px 40px;
+border-radius: 8px;
+font-size: 16px;
+font-weight: 700;
+}
+.cta-btn:hover {
+background: #f0f0f0;
+transform: translateY(-2px);
+}
+
+/* Footer */
+.site-footer {
+background: #1a1a1a;
+color: #fff;
+padding: 60px 60px 40px;
+}
+.footer-content {
+display: flex;
+justify-content: space-between;
+flex-wrap: wrap;
+gap: 60px;
+max-width: 1200px;
+margin: 0 auto 40px;
+}
+.footer-brand {
+max-width: 300px;
+}
+.footer-brand h3 {
+font-size: 28px;
+font-weight: 700;
+margin-bottom: 16px;
+}
+.footer-brand p {
+font-size: 14px;
+color: #aaa;
+line-height: 1.6;
+}
+.footer-links h4 {
+font-size: 16px;
+font-weight: 600;
+margin-bottom: 16px;
+}
+.footer-links ul {
+list-style: none;
+padding: 0;
+margin: 0;
+}
+.footer-links li {
+margin-bottom: 10px;
+}
+.footer-links a {
+color: #aaa;
+font-size: 14px;
+text-decoration: none;
+transition: color .3s;
+}
+.footer-links a:hover {
+color: #fff;
+}
+.footer-bottom {
+text-align: center;
+padding-top: 30px;
+border-top: 1px solid #333;
+color: #888;
+font-size: 14px;
+}
+
+/* Responsive */
+@media (max-width:768px) {
+nav {
+padding: 15px 30px;
+}
+.nav-center {
+display: none;
+}
+.hero-section h1,
+.hero-highlight {
+font-size: 42px;
+}
+.hero-subtitle {
+font-size: 16px;
+}
+.services-container {
+gap: 20px;
+padding: 0 20px 60px;
+}
+.service-card {
+width: 100%;
+max-width: 400px;
+}
+.ai-section,
+.pricing-section,
+.benefits-section,
+.process-section,
+.team-section {
+padding: 60px 20px;
+}
+.ai-section h2,
+.pricing-section h2,
+.benefits-container h2,
+.process-container h2,
+.team-section h2 {
+font-size: 32px;
+}
+.process-step:not(:last-child):after {
+display: none;
+}
+.pricing-cards,
+.process-flow {
+gap: 20px;
+}
+.pricing-card {
+width: 100%;
+max-width: 380px;
+}
+.footer-content {
+flex-direction: column;
+gap: 40px;
+}
+.team-content {
+flex-direction: column;
+text-align: center;
+}
+.team-text {
+max-width: 100%;
+}
+.team-section h2 {
+font-size: 36px;
+}
+.team-visual {
+min-height: 300px;
+}
+.team-illustration {
+max-width: 350px;
+height: 300px;
+}
+}
+</style>
+</head>
+<body>
+<!-- Navigation -->
+<nav>
+<div class="logo">
+<img src="https://i.ibb.co/N2CYTcvn/Frame-1-2-removebg-preview.png" alt="Puetto logo" class="logo-image" />
+</div>
+<div class="nav-center">
+<a href="#services">Services</a>
+<a href="#ai-adoption">AI Adoption</a>
+<a href="#pricing">Pricing</a>
+<a href="#process">Process</a>
+</div>
+<div class="nav-right">
+<button class="contact-btn">Contact Us</button>
+<button class="demo-btn">Book Demo</button>
+</div>
+</nav>
+
+<!-- Hero Section -->
+<section class="hero-section" id="hero">
+<h1>All-in-One AI Agency for</h1>
+<div class="hero-highlight">Business Owners</div>
+<p class="hero-subtitle">
+An AI-enabled agency that owns sales, marketing, HR, support and productivity of your startup.
+Get dedicated professionals and AI infrastructure you need for your business without burning dollars.
+</p>
+<div class="hero-buttons">
+<button class="get-started-btn">Get Started</button>
+<button class="learn-more-btn">Learn More</button>
+</div>
+</section>
+
+<!-- Services Section -->
+<section class="services-section" id="services">
+<div class="services-container">
+<!-- Sales Card -->
+<div class="service-card">
+<div class="card-icon-section">
+<div class="icon-wrapper">
+<svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V8l8 5 8-5v10zm-8-7L4 6h16l-8 5z"/></svg>
+</div>
+</div>
+<div class="card-content">
+<h3 class="card-title">Sales</h3>
+<p class="card-description">Complete sales operations for B2C startups</p>
+<ul class="card-features">
+<li>Lead generation & qualification</li>
+<li>Sales funnel optimization</li>
+<li>Customer acquisition strategy</li>
+<li>Sales automation & CRM setup</li>
+<li>Conversion rate optimization</li>
+</ul>
+</div>
+</div>
+
+<!-- Marketing Card -->
+<div class="service-card">
+<div class="card-icon-section">
+<div class="icon-wrapper">
+<svg viewBox="0 0 24 24"><path d="M12 2L4.5 20.29l.71.71L12 18l6.79 3 .71-.71z"/></svg>
+</div>
+</div>
+<div class="card-content">
+<h3 class="card-title">Marketing</h3>
+<p class="card-description">Full-stack marketing for B2C growth</p>
+<ul class="card-features">
+<li>Content marketing & SEO</li>
+<li>Social media management</li>
+<li>Paid advertising campaigns</li>
+<li>Brand positioning & strategy</li>
+<li>Email & SMS marketing</li>
+</ul>
+</div>
+</div>
+
+<!-- HR Card -->
+<div class="service-card">
+<div class="card-icon-section">
+<div class="icon-wrapper">
+<svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+</div>
+</div>
+<div class="card-content">
+<h3 class="card-title">HR</h3>
+<p class="card-description">Essential HR functions for startups</p>
+<ul class="card-features">
+<li>Recruitment & onboarding</li>
+<li>Employee management</li>
+<li>Performance tracking</li>
+<li>Payroll assistance</li>
+<li>HR policy development</li>
+</ul>
+</div>
+</div>
+
+<!-- Productivity Card -->
+<div class="service-card">
+<div class="card-icon-section">
+<div class="icon-wrapper">
+<svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/></svg>
+</div>
+</div>
+<div class="card-content">
+<h3 class="card-title">Productivity</h3>
+<p class="card-description">Automation from spreadsheets to processes</p>
+<ul class="card-features">
+<li>Workflow automation</li>
+<li>Data management systems</li>
+<li>Custom integrations</li>
+<li>Process optimization</li>
+<li>Business intelligence</li>
+</ul>
+</div>
+</div>
+
+<!-- Support Card -->
+<div class="service-card">
+<div class="card-icon-section">
+<div class="icon-wrapper">
+<svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+</div>
+</div>
+<div class="card-content">
+<h3 class="card-title">Support</h3>
+<p class="card-description">Problem → Solution → Feedback loop</p>
+<ul class="card-features">
+<li>24/7 customer support</li>
+<li>Helpdesk management</li>
+<li>Ticket resolution system</li>
+<li>Customer feedback loops</li>
+<li>Support automation</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+
+<!-- AI Adoption Section -->
+<section class="ai-section" id="ai-adoption">
+<h2>Accelerate Your AI Adoption</h2>
+<p class="subtitle">
+We help startups fasten AI adoption by equipping companies and founders with the right AI infrastructure.
+</p>
+<div class="process-flow">
+<div class="process-step">
+<div class="step-number">1</div>
+<div class="step-title">Audit</div>
+<p class="step-desc">Comprehensive analysis of your current systems and AI opportunities</p>
+</div>
+<div class="process-step">
+<div class="step-number">2</div>
+<div class="step-title">Implement</div>
+<p class="step-desc">Deploy tailored AI solutions across your business operations</p>
+</div>
+<div class="process-step">
+<div class="step-number">3</div>
+<div class="step-title">Manage</div>
+<p class="step-desc">Ongoing optimization and support for maximum ROI</p>
+</div>
+</div>
+</section>
+
+<!-- Pricing Section -->
+<section class="pricing-section" id="pricing">
+<h2>Simple, Transparent Pricing</h2>
+<p class="subtitle">Choose the plan that fits your business needs</p>
+<div class="pricing-cards">
+<!-- AI Infrastructure Plan -->
+<div class="pricing-card">
+<h3 class="pricing-title">AI Infrastructure</h3>
+<div class="pricing-amount">$999</div>
+<div class="pricing-period">One-time setup</div>
+<ul class="pricing-features">
+<li>Complete AI audit</li>
+<li>Infrastructure implementation</li>
+<li>System integration</li>
+<li>30-day support included</li>
+<li>Training & documentation</li>
+</ul>
+<button class="pricing-btn">Get Started</button>
+</div>
+
+<!-- Full Service Plan -->
+<div class="pricing-card featured">
+<div class="featured-badge">Most Popular</div>
+<h3 class="pricing-title">Full Service</h3>
+<div class="pricing-amount">$1,999</div>
+<div class="pricing-period">Per month</div>
+<ul class="pricing-features">
+<li>Sales & Marketing</li>
+<li>HR & Support</li>
+<li>Productivity & Automation</li>
+<li>Dedicated team</li>
+<li>24/7 Support</li>
+<li>Monthly reporting</li>
+<li>AI infrastructure included</li>
+</ul>
+<button class="pricing-btn">Get Started</button>
+</div>
+</div>
+</section>
+
+<!-- Benefits Section -->
+<section class="benefits-section">
+<div class="benefits-container">
+<h2>Why Choose Puetto?</h2>
+<div class="benefits-grid">
+<div class="benefit-item">
+<div class="benefit-icon">🎯</div>
+<h3 class="benefit-title">All-in-One Agency</h3>
+<p class="benefit-desc">Everything you need under one roof - from sales to support</p>
+</div>
+<div class="benefit-item">
+<div class="benefit-icon">💼</div>
+<h3 class="benefit-title">Expert Team</h3>
+<p class="benefit-desc">Professionals from scaled startups and top MNCs</p>
+</div>
+<div class="benefit-item">
+<div class="benefit-icon">🚀</div>
+<h3 class="benefit-title">Cost-Efficient Growth</h3>
+<p class="benefit-desc">Optimize for growth without burning through capital</p>
+</div>
+<div class="benefit-item">
+<div class="benefit-icon">⚡</div>
+<h3 class="benefit-title">Move at AI Speed</h3>
+<p class="benefit-desc">Keep pace with the AI era's rapid evolution</p>
+</div>
+<div class="benefit-item">
+<div class="benefit-icon">🔧</div>
+<h3 class="benefit-title">Managed & Maintained</h3>
+<p class="benefit-desc">Dedicated team handling everything for you</p>
+</div>
+<div class="benefit-item">
+<div class="benefit-icon">📞</div>
+<h3 class="benefit-title">24/7 Support</h3>
+<p class="benefit-desc">Email, phone, or DM - we're always here</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Process Section -->
+<section class="process-section" id="process">
+<div class="process-container">
+<h2>How We Work</h2>
+<p class="process-subtitle">Immediate results and a professional team for long-term success</p>
+<div class="process-timeline">
+<div class="timeline-item">
+<div class="timeline-dot">1</div>
+<div class="timeline-content">
+<h3 class="timeline-title">Discovery and Tailored Strategy</h3>
+<p class="timeline-desc">
+We dive deep into your business to understand your unique challenges, goals, and opportunities.
+Then we craft a customized strategy that aligns with your vision and market position.
+</p>
+</div>
+</div>
+<div class="timeline-item">
+<div class="timeline-dot">2</div>
+<div class="timeline-content">
+<h3 class="timeline-title">OKR Setting and Execution</h3>
+<p class="timeline-desc">
+We establish clear, measurable objectives and key results (OKRs) that drive accountability.
+Our team executes with precision, ensuring every action contributes to your success metrics.
+</p>
+</div>
+</div>
+<div class="timeline-item">
+<div class="timeline-dot">3</div>
+<div class="timeline-content">
+<h3 class="timeline-title">Long-term Playbook and Roadmaps</h3>
+<p class="timeline-desc">
+We develop comprehensive playbooks and strategic roadmaps that guide your business growth over time.
+These living documents evolve with your business and market conditions.
+</p>
+</div>
+</div>
+<div class="timeline-item">
+<div class="timeline-dot">4</div>
+<div class="timeline-content">
+<h3 class="timeline-title">Reporting and Communication</h3>
+<p class="timeline-desc">
+Transparent, regular reporting keeps you informed. We maintain open communication channels,
+providing insights, metrics, and recommendations to keep you ahead of the curve.
+</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Team Section -->
+<section class="team-section">
+<div class="team-content">
+<div class="team-text">
+<span class="team-badge">NEW!</span>
+<h2>Built by Professionals<br/>Who Care</h2>
+<p>
+We're a team of dedicated professionals who love working on building and supporting businesses from scratch.
+Prototype quickly, experiment freely, and share instantly with AI-powered infrastructure and expertise.
+</p>
+<button class="team-cta-btn">Learn More</button>
+</div>
+<div class="team-visual">
+<div class="team-illustration">
+<div class="flow-shape"></div>
+<div class="flow-accent"></div>
+<div class="flow-accent"></div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- CTA Section -->
+<section class="cta-section">
+<h2>Ready to Transform Your Business?</h2>
+<p>Join startups that are scaling faster with Puetto's AI-powered solutions</p>
+<button class="cta-btn">Schedule a Free Consultation</button>
+</section>
+
+<!-- Footer -->
+<footer class="site-footer">
+<div class="footer-content">
+<div class="footer-brand">
+<h3>Puetto</h3>
+<p>An AI-enabled agency that owns sales, marketing, HR, support and productivity of your startup.</p>
+</div>
+<div class="footer-links">
+<h4>Services</h4>
+<ul>
+<li><a href="#services">Sales</a></li>
+<li><a href="#services">Marketing</a></li>
+<li><a href="#services">HR</a></li>
+<li><a href="#services">Productivity</a></li>
+<li><a href="#services">Support</a></li>
+</ul>
+</div>
+<div class="footer-links">
+<h4>Company</h4>
+<ul>
+<li><a href="#process">How We Work</a></li>
+<li><a href="#pricing">Pricing</a></li>
+<li><a href="#ai-adoption">AI Adoption</a></li>
+<li><a href="#">Contact</a></li>
+</ul>
+</div>
+<div class="footer-links">
+<h4>Resources</h4>
+<ul>
+<li><a href="#">Blog</a></li>
+<li><a href="#">Case Studies</a></li>
+<li><a href="#">FAQ</a></li>
+<li><a href="#">Support</a></li>
+</ul>
+</div>
+</div>
+<div class="footer-bottom">
+© 2025 Puetto. All rights reserved. | Privacy Policy | Terms of Service
+</div>
+</footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+const on = (sel, evt, fn) =>
+document.querySelectorAll(sel).forEach(el => el.addEventListener(evt, fn));
+
+// Smooth scroll
+on('a[href^="#"]', 'click', e => {
+e.preventDefault();
+const tgt = document.querySelector(e.currentTarget.getAttribute('href'));
+tgt?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+});
+
+// Button hover cursor
+on('.service-card', 'mouseenter', e => e.currentTarget.style.cursor = 'pointer');
+
+// CTA tracking
+on('.get-started-btn, .cta-btn, .pricing-btn', 'click', () => {
+console.log('CTA clicked');
+});
+on('.demo-btn', 'click', () => {
+console.log('Demo requested');
+});
+on('.contact-btn', 'click', () => {
+console.log('Contact initiated');
+});
+on('.team-cta-btn', 'click', () => {
+console.log('Team section CTA clicked');
+});
+});
+</script>
+</body>
+</html>
