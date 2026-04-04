@@ -82,13 +82,21 @@ const Hero = () => {
 
       <div className="hero-bottom-strip fade-up" style={{ animationDelay: '0.2s' }}>
         <div className="trusted-row">
-          <p className="trusted-text">Trusted by growing B2B<br/>companies globally -</p>
-          <div className="trusted-logos">
-             {/* Fake logos representing 'logoipsum' style */}
-             <div className="t-logo"><span className="t-icon">◒</span> Vertex</div>
-             <div className="t-logo"><span className="t-icon">◈</span> GlobalScale</div>
-             <div className="t-logo"><span className="t-icon">◧</span> Nexus</div>
-             <div className="t-logo"><span className="t-icon">◨</span> Acme Corp</div>
+          <p className="trusted-text">Trusted by companies worldwide to run better ops</p>
+          <div className="trusted-marquee-wrapper">
+            <div className="trusted-marquee-track">
+              <img src="https://d1.awsstatic.com/onedam/marketing-channels/website/aws/en_US/solution-case-studies/approved/images/in-case-study_simplismart_logo.a035efb080a961cd692d8375055cb915d42d2d2a.png" alt="SimpliSmart" className="t-logo-img" />
+              <img src="https://cashfreelogo.cashfree.com/website/landings/homepage/cashfreeLogo.png" alt="Cashfree" className="t-logo-img" />
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Coursera_logo_%282020%29.svg/3840px-Coursera_logo_%282020%29.svg.png" alt="Coursera" className="t-logo-img" />
+              <img src="https://upload.wikimedia.org/wikipedia/en/thumb/5/5f/Inovalon_logo.svg/1280px-Inovalon_logo.svg.png" alt="Inovalon" className="t-logo-img" />
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Cisco_logo_blue_2016.svg/1280px-Cisco_logo_blue_2016.svg.png" alt="Cisco" className="t-logo-img" />
+              {/* Duplicate for seamless loop */}
+              <img src="https://d1.awsstatic.com/onedam/marketing-channels/website/aws/en_US/solution-case-studies/approved/images/in-case-study_simplismart_logo.a035efb080a961cd692d8375055cb915d42d2d2a.png" alt="SimpliSmart" className="t-logo-img" />
+              <img src="https://cashfreelogo.cashfree.com/website/landings/homepage/cashfreeLogo.png" alt="Cashfree" className="t-logo-img" />
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Coursera_logo_%282020%29.svg/3840px-Coursera_logo_%282020%29.svg.png" alt="Coursera" className="t-logo-img" />
+              <img src="https://upload.wikimedia.org/wikipedia/en/thumb/5/5f/Inovalon_logo.svg/1280px-Inovalon_logo.svg.png" alt="Inovalon" className="t-logo-img" />
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Cisco_logo_blue_2016.svg/1280px-Cisco_logo_blue_2016.svg.png" alt="Cisco" className="t-logo-img" />
+            </div>
           </div>
         </div>
       </div>
