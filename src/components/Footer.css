@@ -1,0 +1,142 @@
+.footer-section {
+  padding: 0 0 2rem 0;
+  background-color: #ffffff;
+  color: #111111;
+  overflow: hidden;
+  position: relative;
+}
+
+
+/* Zyforia Style Main Grid */
+.footer-main-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 4rem;
+  padding: 6rem 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  position: relative;
+  z-index: 2;
+}
+
+.footer-logo-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.footer-logo-img-new {
+  height: 60px;
+  width: auto;
+}
+
+.footer-brand-statement {
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.5;
+  color: #666;
+  margin-bottom: 1rem;
+  white-space: nowrap;
+}
+
+.footer-social-links {
+  display: flex;
+  gap: 1.25rem;
+  margin-bottom: 4rem;
+}
+
+.footer-social-links a {
+  color: #111111;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.footer-social-links a:hover {
+  opacity: 0.6;
+  transform: translateY(-2px);
+}
+
+.copyright-text {
+  font-size: 0.9rem;
+  color: #888;
+}
+
+.footer-nav-column ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 2.5rem;
+}
+
+.footer-nav-column li {
+  margin-bottom: 0;
+}
+
+.footer-nav-column a {
+  color: #666;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.2s ease;
+  font-weight: 500;
+}
+
+.footer-nav-column a:hover {
+  color: #111;
+}
+
+.minimalist-links {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  padding-top: 1rem;
+}
+
+/* Massive Watermark - Enhanced Visibility on White */
+.footer-watermark {
+  width: 100%;
+  text-align: center;
+  margin-top: -4rem;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.watermark-text {
+  font-size: 25vw;
+  font-weight: 700;
+  line-height: 0.8;
+  letter-spacing: -0.05em;
+  /* Premium Outline Gradient Style - Softened for White BG */
+  color: transparent;
+  -webkit-text-stroke: 1px transparent;
+  background: linear-gradient(to right, #f59e0b, #ef4444, #3b82f6);
+  -webkit-background-clip: text;
+  background-clip: text;
+  opacity: 0.15; /* Lowered for white background harmony */
+  display: block;
+  transform: translateY(25%);
+  user-select: none;
+}
+
+@media (max-width: 1200px) {
+  .footer-main-grid {
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .footer-main-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+  }
+  .pre-footer-cta h2 { font-size: 3rem; }
+}
+
+@media (max-width: 576px) {
+  .footer-main-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  .footer-cta-buttons { flex-direction: column; gap: 1.5rem; }
+  .watermark-text { font-size: 30vw; }
+}

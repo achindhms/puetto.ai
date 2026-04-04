@@ -1,0 +1,241 @@
+.integrations-section {
+  padding: 10rem 0;
+  background-color: #fcfcfc;
+  overflow: hidden;
+  position: relative;
+}
+
+.integrations-header {
+  text-align: center;
+  margin-bottom: 6rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.integrations-title {
+  font-size: 3.5rem;
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  margin-bottom: 1.5rem;
+  color: #111;
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, #f59e0b 0%, #ef4444 50%, #3b82f6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.integrations-subtitle {
+  font-size: 1.2rem;
+  color: #666;
+  line-height: 1.6;
+}
+
+/* Phantom Grid Layout */
+.integrations-grid-wrapper {
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto;
+  min-height: 600px;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  align-items: center;
+  justify-items: center;
+}
+
+.phantom-grid {
+  grid-area: 1 / 1 / 2 / 2;
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+  gap: 1.5rem;
+  z-index: 1;
+  width: 100%;
+}
+
+.phantom-box {
+  background: rgba(0, 0, 0, 0.02);
+  border-radius: 12px;
+  width: 100%;
+  aspect-ratio: 1;
+  transition: background 0.3s ease;
+}
+
+/* Tool Cards - Scoped Positions for a 'Scattered' look */
+.actual-tools {
+  grid-area: 1 / 1 / 2 / 2;
+  z-index: 2;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+  gap: 1.5rem;
+}
+
+.tool-card {
+  background: #ffffff;
+  border-radius: 12px;
+  width: 100%;
+  aspect-ratio: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.02);
+  cursor: pointer;
+  /* Apply unified breathe to the entire card */
+  opacity: 0;
+  animation: floatTool 4s ease-in-out infinite;
+}
+
+.is-visible .tool-card {
+  animation: logoBreathe 6s ease-in-out infinite, floatTool 4s ease-in-out infinite;
+}
+
+/* Tri-Phase Shifting for the entire card */
+.is-visible .tool-card:nth-child(3n + 1) { animation-delay: 0s, 0s; }
+.is-visible .tool-card:nth-child(3n + 2) { animation-delay: -2s, 0.5s; }
+.is-visible .tool-card:nth-child(3n + 3) { animation-delay: -4s, 1s; }
+
+.tool-card:hover {
+  transform: translateY(-8px) scale(1.05) !important;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  border-color: var(--tool-color);
+  z-index: 10;
+  opacity: 1 !important;
+}
+
+/* Specific Scatter Positionings - Row Framing Layout */
+/* Fulfilled Top (Rows 1-2) */
+.actual-tools .tool-card:nth-child(1)  { grid-column: 1; grid-row: 1; }
+.actual-tools .tool-card:nth-child(2)  { grid-column: 2; grid-row: 1; }
+.actual-tools .tool-card:nth-child(3)  { grid-column: 3; grid-row: 1; }
+.actual-tools .tool-card:nth-child(4)  { grid-column: 4; grid-row: 1; }
+.actual-tools .tool-card:nth-child(5)  { grid-column: 5; grid-row: 1; }
+.actual-tools .tool-card:nth-child(6)  { grid-column: 6; grid-row: 1; }
+.actual-tools .tool-card:nth-child(7)  { grid-column: 7; grid-row: 1; }
+.actual-tools .tool-card:nth-child(8)  { grid-column: 8; grid-row: 1; }
+.actual-tools .tool-card:nth-child(9)  { grid-column: 1; grid-row: 2; }
+.actual-tools .tool-card:nth-child(10) { grid-column: 3; grid-row: 2; }
+.actual-tools .tool-card:nth-child(11) { grid-column: 5; grid-row: 2; }
+.actual-tools .tool-card:nth-child(12) { grid-column: 7; grid-row: 2; }
+.actual-tools .tool-card:nth-child(39) { grid-column: 2; grid-row: 2; }
+.actual-tools .tool-card:nth-child(40) { grid-column: 4; grid-row: 2; }
+.actual-tools .tool-card:nth-child(43) { grid-column: 6; grid-row: 2; }
+.actual-tools .tool-card:nth-child(44) { grid-column: 8; grid-row: 2; }
+
+/* Sparse Center (Rows 3-4) */
+.actual-tools .tool-card:nth-child(13) { grid-column: 2; grid-row: 3; }
+.actual-tools .tool-card:nth-child(14) { grid-column: 7; grid-row: 3; }
+.actual-tools .tool-card:nth-child(15) { grid-column: 3; grid-row: 4; }
+.actual-tools .tool-card:nth-child(16) { grid-column: 6; grid-row: 4; }
+.actual-tools .tool-card:nth-child(17) { grid-column: 4; grid-row: 3; }
+.actual-tools .tool-card:nth-child(18) { grid-column: 5; grid-row: 4; }
+.actual-tools .tool-card:nth-child(35) { grid-column: 1; grid-row: 3; }
+.actual-tools .tool-card:nth-child(36) { grid-column: 8; grid-row: 3; }
+.actual-tools .tool-card:nth-child(37) { grid-column: 2; grid-row: 4; }
+.actual-tools .tool-card:nth-child(38) { grid-column: 7; grid-row: 4; }
+.actual-tools .tool-card:nth-child(41) { grid-column: 4; grid-row: 4; }
+.actual-tools .tool-card:nth-child(42) { grid-column: 5; grid-row: 3; }
+
+/* Fulfilled Bottom (Rows 5-6) */
+.actual-tools .tool-card:nth-child(19) { grid-column: 1; grid-row: 5; }
+.actual-tools .tool-card:nth-child(20) { grid-column: 2; grid-row: 5; }
+.actual-tools .tool-card:nth-child(21) { grid-column: 3; grid-row: 5; }
+.actual-tools .tool-card:nth-child(22) { grid-column: 4; grid-row: 5; }
+.actual-tools .tool-card:nth-child(23) { grid-column: 5; grid-row: 5; }
+.actual-tools .tool-card:nth-child(24) { grid-column: 6; grid-row: 5; }
+.actual-tools .tool-card:nth-child(25) { grid-column: 7; grid-row: 5; }
+.actual-tools .tool-card:nth-child(26) { grid-column: 8; grid-row: 5; }
+.actual-tools .tool-card:nth-child(27) { grid-column: 1; grid-row: 6; }
+.actual-tools .tool-card:nth-child(28) { grid-column: 2; grid-row: 6; }
+.actual-tools .tool-card:nth-child(29) { grid-column: 3; grid-row: 6; }
+.actual-tools .tool-card:nth-child(30) { grid-column: 4; grid-row: 6; }
+.actual-tools .tool-card:nth-child(31) { grid-column: 5; grid-row: 6; }
+.actual-tools .tool-card:nth-child(32) { grid-column: 6; grid-row: 6; }
+.actual-tools .tool-card:nth-child(33) { grid-column: 7; grid-row: 6; }
+.actual-tools .tool-card:nth-child(34) { grid-column: 8; grid-row: 6; }
+
+.tool-icon-wrapper-full {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tool-icon-large {
+  font-size: 2rem;
+}
+
+.tool-img-icon-large {
+  width: 80%;
+  height: 80%;
+  object-fit: contain;
+  opacity: 1;
+  transition: all 0.3s ease;
+}
+
+.tool-card:hover .tool-img-icon-large {
+  transform: scale(1.1);
+}
+
+.tool-category {
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: #666;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+@keyframes floatTool {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+@keyframes logoBreathe {
+  0%, 65% { opacity: 1; transform: scale(1.02); filter: grayscale(0); }
+  80%, 95% { opacity: 0; transform: scale(0.98); filter: grayscale(1); }
+  100% { opacity: 1; transform: scale(1.02); filter: grayscale(0); }
+}
+
+/* Base breathe class - Tri-Phase Shift (Only 1 group out at once) */
+.is-visible .blink-target {
+  animation: logoBreathe 12s ease-in-out infinite;
+}
+
+.is-visible .tool-card {
+  animation: logoBreathe 12s ease-in-out infinite, floatTool 4s ease-in-out infinite;
+}
+
+/* Three Uneven Groups - Split by 3n */
+.is-visible .tool-card:nth-child(3n + 1) { animation-delay: 0s, 0s; }
+.is-visible .tool-card:nth-child(3n + 1) .blink-target { animation-delay: 0s; }
+
+.is-visible .tool-card:nth-child(3n + 2) { animation-delay: -4s, 1s; }
+.is-visible .tool-card:nth-child(3n + 2) .blink-target { animation-delay: -4s; }
+
+.is-visible .tool-card:nth-child(3n + 3) { animation-delay: -8s, 2s; }
+.is-visible .tool-card:nth-child(3n + 3) .blink-target { animation-delay: -8s; }
+
+@media (max-width: 992px) {
+  .integrations-title { font-size: 2.5rem; }
+  .phantom-grid { grid-template-columns: repeat(4, 1fr); }
+  .actual-tools { grid-template-columns: repeat(4, 1fr); }
+  .actual-tools .tool-card:nth-child(n) { grid-column: auto; grid-row: auto; }
+}
+
+@media (max-width: 576px) {
+  .integrations-header { padding: 0 1rem; }
+  .phantom-grid { grid-template-columns: repeat(3, 1fr); gap: 0.75rem; }
+  .actual-tools { grid-template-columns: repeat(3, 1fr); gap: 0.75rem; }
+}

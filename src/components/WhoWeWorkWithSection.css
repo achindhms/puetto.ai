@@ -1,0 +1,51 @@
+.who-we-work-section {
+  padding-top: 4rem;
+}
+
+.who-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  margin-top: 4rem;
+}
+
+.who-card {
+  padding: 2rem;
+  background-color: var(--white);
+  border-radius: var(--border-radius-md);
+  border: 1px solid #eaeaea;
+}
+
+.who-card h4 {
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+  color: var(--text-color);
+  line-height: 1.4;
+}
+
+.who-card p {
+  color: var(--text-secondary);
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+.middle-east-banner {
+  background: linear-gradient(120deg, #dfecf3 0%, #f4eee2 100%);
+  padding: 2rem 3rem;
+  border-radius: var(--border-radius-md);
+  font-size: 1.1rem;
+  color: var(--text-color);
+  margin-top: 4rem;
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .who-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .middle-east-banner {
+    padding: 1.5rem;
+  }
+}

@@ -1,0 +1,322 @@
+.how-it-works-dark {
+  background-color: #fcfcfc; /* Matching Problem Section light grey */
+  color: #111;
+  padding: 8rem 0;
+  overflow: hidden;
+  position: relative;
+}
+
+.how-header {
+  text-align: center;
+  margin-bottom: 10rem;
+}
+
+.process-eyebrow {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #3b82f6; 
+  letter-spacing: 0.2em;
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+}
+
+.how-title {
+  font-size: 4rem;
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: -0.04em;
+  margin-bottom: 1.5rem;
+}
+
+.how-subtitle {
+  font-size: 1.25rem;
+  color: #666;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* Journey Layout */
+.journey-container {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  height: 1200px; /* Locked to the final card */
+}
+
+/* SVG Path Animation - Square/Architectural Path */
+.svg-path-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.journey-svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.journey-line-bg {
+  stroke: rgba(0, 0, 0, 0.05);
+  stroke-dasharray: 8 12;
+}
+
+.journey-line-active {
+  stroke-dasharray: 8 12;
+  stroke-linecap: square; 
+  filter: drop-shadow(0 0 5px rgba(249, 115, 22, 0.2));
+}
+
+.travel-node-outer {
+  animation: pulseTravel 2s ease-in-out infinite;
+}
+
+@keyframes pulseTravel {
+  0%, 100% { transform: scale(1); opacity: 0.3; }
+  50% { transform: scale(1.8); opacity: 0.15; }
+}
+
+.travel-node {
+  transition: all 0.05s linear;
+}
+
+/* Journey Steps Reveal */
+.journey-steps {
+  position: relative;
+  z-index: 10;
+  height: 100%;
+}
+
+.journey-step {
+  position: absolute;
+  width: 420px;
+  opacity: 0.1;
+  transform: translateY(20px);
+  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+}
+
+.journey-step.is-active {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: all;
+}
+
+.journey-step.left { 
+  left: 15.2%; 
+  text-align: left; 
+}
+
+.journey-step.right { 
+  right: 15.2%; 
+  text-align: left; 
+}
+
+/* Positioning exactly centered on vertical path segments */
+.journey-step.left:nth-child(1) { top: 12.5%; transform: translateY(-50%); }
+.journey-step.right:nth-child(2) { top: 37.5%; transform: translateY(-50%); }
+.journey-step.left:nth-child(3) { top: 62.5%; transform: translateY(-50%); }
+.journey-step.right:nth-child(4) { top: 87.5%; transform: translateY(-50%); }
+
+.step-content {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  border-radius: 28px;
+  padding: 3rem;
+  min-height: 160px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  z-index: 10;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 
+    0 10px 40px rgba(0,0,0,0.02), 
+    0 30px 100px rgba(0,0,0,0.06),
+    inset 0 0 20px rgba(255,255,255,0.6);
+  transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: scale(0.95);
+  opacity: 0;
+}
+
+.is-active .step-content {
+  transform: scale(1);
+  opacity: 1;
+}
+
+/* Glass Phase Number - Refined position */
+.step-number-bg {
+  position: absolute;
+  top: 1rem;
+  left: 2rem;
+  font-size: 6rem;
+  font-weight: 900;
+  line-height: 1;
+  color: rgba(0, 0, 0, 0.025);
+  pointer-events: none;
+  z-index: -1;
+  font-family: 'Space Grotesk', sans-serif;
+  letter-spacing: -0.05em;
+}
+
+.journey-step.right .step-number-bg {
+  left: auto;
+  right: 2rem;
+}
+
+/* Gradient Border Masking Interface */
+.journey-step::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  padding: 2px;
+  border-radius: 25px;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0%,
+    #f59e0b 25%,
+    #ef4444 50%,
+    #3b82f6 75%,
+    transparent 100%
+  );
+  -webkit-mask: 
+     linear-gradient(#fff 0 0) content-box, 
+     linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  mask: 
+     linear-gradient(#fff 0 0) content-box, 
+     linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
+.journey-step.is-active::before {
+  opacity: 1;
+  animation: rotateGradient 4s linear infinite;
+}
+
+@keyframes rotateGradient {
+  from { background: conic-gradient(from 0deg, transparent 0%, #f59e0b 25%, #ef4444 50%, #3b82f6 75%, transparent 100%); }
+  to { background: conic-gradient(from 360deg, transparent 0%, #f59e0b 25%, #ef4444 50%, #3b82f6 75%, transparent 100%); }
+}
+
+.step-glow-indicator {
+  position: absolute;
+  top: 0;
+  left: -1px; /* Overlap EXACTLY with the card edge and journey path */
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(to bottom, transparent, #ef4444 50%, transparent); /* Red/Pink mid-gradient */
+  box-shadow: 0 0 15px rgba(239, 68, 68, 0.4);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  z-index: 5;
+}
+
+.journey-step.right .step-glow-indicator { left: auto; right: -1px; }
+
+.is-active .step-glow-indicator {
+  opacity: 1;
+}
+
+.step-node-point {
+  position: absolute;
+  top: 50%;
+  left: -5px; /* Centered perfectly on the edge line */
+  transform: translateY(-50%);
+  width: 10px;
+  height: 10px;
+  background: #ef4444; /* Matching the red/pink 'peak' of the gradient */
+  border-radius: 50%;
+  box-shadow: 0 0 20px #ef4444, 0 0 40px rgba(239, 68, 68, 0.3);
+  z-index: 20;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.journey-step.right .step-node-point {
+  left: auto;
+  right: -4px;
+}
+
+.is-active .step-node-point {
+  opacity: 1;
+}
+
+.step-text-block {
+  padding-left: 0.5rem;
+}
+
+.step-time-badge {
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: #f97316; /* Orange instead of green */
+  margin-bottom: 0.75rem;
+  text-transform: uppercase;
+}
+
+.step-phase-title {
+  display: block;
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #111;
+  margin-bottom: 1rem;
+  letter-spacing: -0.03em;
+  background: linear-gradient(135deg, #111 0%, #444 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.step-details-text {
+  font-size: 1rem;
+  color: #666;
+  line-height: 1.6;
+  max-width: 340px;
+}
+
+/* Commitment Module */
+.commitment-module {
+  max-width: 800px;
+  margin: 10rem auto 0;
+  background: rgba(59, 130, 246, 0.03); /* Subtle blue tint instead of green */
+  border: 1px solid rgba(59, 130, 246, 0.1);
+  padding: 3.5rem;
+  text-align: center;
+  border-radius: 24px;
+}
+
+.commitment-badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 800;
+  background: #3b82f6;
+  color: #fff;
+  padding: 6px 16px;
+  border-radius: 4px; 
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+}
+
+.commitment-text {
+  font-size: 1.35rem;
+  color: #111;
+  line-height: 1.5;
+  font-weight: 500;
+}
+
+@media (max-width: 992px) {
+  .how-title { font-size: 2.5rem; }
+  .journey-container { height: auto; }
+  .journey-steps { display: flex; flex-direction: column; gap: 8rem; padding: 2rem; }
+  .journey-step { position: relative !important; width: 100% !important; left: 0 !important; right: 0 !important; top: 0 !important; opacity: 1; transform: none; }
+  .svg-path-wrapper { display: none; }
+  .commitment-module { margin: 5rem 1rem 0; padding: 2rem; }
+}
