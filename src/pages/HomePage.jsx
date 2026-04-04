@@ -48,14 +48,16 @@ const HomePage = () => {
         <meta property="og:url" content="https://www.puetto.com/" />
         <meta property="og:title" content="PUETTO | AI GTM Ops Partner for Scaling Revenue & Product" />
         <meta property="og:description" content="Stop manual ops. Puetto automates your GTM infrastructure using advanced AI and custom integrations." />
-        <meta property="og:image" content="https://i.ibb.co/N2CYTcvn/Frame-1-2-removebg-preview.png" />
+        <meta property="og:image" content="https://i.ibb.co/JFsW9SBm/Screenshot-2026-04-04-at-10-47-17-PM.png" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
 
         {/* Twitter */}
         <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:url" content="https://www.puetto.com/" />
         <meta property="twitter:title" content="PUETTO | AI GTM Ops Partner" />
         <meta property="twitter:description" content="AI-enabled GTM operations partner helping high-growth companies scale with zero manual overhead." />
-        <meta property="twitter:image" content="https://i.ibb.co/N2CYTcvn/Frame-1-2-removebg-preview.png" />
+        <meta property="twitter:image" content="https://i.ibb.co/JFsW9SBm/Screenshot-2026-04-04-at-10-47-17-PM.png" />
 
         {/* JSON-LD Structured Data */}
         <script type="application/ld+json">
