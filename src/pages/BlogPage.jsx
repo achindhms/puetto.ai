@@ -18,9 +18,17 @@ const blogPosts = [
     excerpt: 'Instrumenting Mixpanel and PostHog to connect product data directly to your sales and support teams.',
     readTime: '4 Min Read',
     image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800'
-  },
+  }, 
   {
     id: 3,
+    category: 'PRODUCT OPS',
+    title: 'Real-Time Analytics for Smarter Engineering',
+    excerpt: 'Instrumenting Mixpanel and PostHog to connect product data directly to your sales and support teams.',
+    readTime: '4 Min Read',
+    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800'
+  },
+  {
+    id: 4,
     category: 'PEOPLE OPS',
     title: 'Automating the Operating Manual',
     excerpt: 'How we remove the manual loops from hiring, onboarding, and day-to-day people infrastructure.',
