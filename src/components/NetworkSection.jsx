@@ -42,9 +42,14 @@ const NetworkSection = () => {
           <p className="net-subtitle">
             Empowering teams with the tools, automations, and AI to scale.
           </p>
-          <button className="net-cta-btn">
-            Book an audit <ArrowRight size={16} />
-          </button>
+<a 
+  href="https://cal.com/puetto/hq" 
+  target="_blank" 
+  rel="noopener noreferrer" 
+  className="net-cta-btn"
+>
+  Book an audit <ArrowRight size={16} />
+</a>
         </div>
 
         <div className="net-interactive-area flywheel-layout">
