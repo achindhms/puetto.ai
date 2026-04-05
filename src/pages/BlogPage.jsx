@@ -18,14 +18,14 @@ const blogPosts = [
     excerpt: 'Instrumenting Mixpanel and PostHog to connect product data directly to your sales and support teams.',
     readTime: '4 Min Read',
     image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800'
-  }, 
+  },
   {
     id: 3,
-    category: 'PRODUCT OPS',
-    title: 'Real-Time Analytics for Smarter Engineering',
-    excerpt: 'Instrumenting Mixpanel and PostHog to connect product data directly to your sales and support teams.',
-    readTime: '4 Min Read',
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800'
+    category: 'REVENUE OPS',
+    title: 'Building a Scalable Lead Routing System That Actually Works',
+    excerpt: 'How to architect a lead routing system using automation and CRM logic that scales with your team without breaking down.',
+    readTime: '5 Min Read',
+    image: 'https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&fit=crop&q=80&w=800'
   },
   {
     id: 4,
@@ -56,7 +56,6 @@ const BlogPage = () => {
           </div>
         </div>
       </section>
-
       <section className="blog-grid-section">
         <div className="section-container">
           <div className="blog-posts-grid">
