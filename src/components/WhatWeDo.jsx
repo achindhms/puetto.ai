@@ -176,7 +176,14 @@ const WhatWeDo = () => {
 
 
                     <div className="wwd-card-footer">
-                       <button className="pro-audit-btn">Book an audit <ArrowRight size={16} /></button>
+                       <a 
+  href="https://cal.com/puetto/hq" 
+  target="_blank" 
+  rel="noopener noreferrer" 
+  className="pro-audit-btn"
+>
+  Book an audit <ArrowRight size={16} />
+</a>
                     </div>
                   </div>
 
