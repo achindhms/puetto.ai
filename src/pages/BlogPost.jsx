@@ -65,6 +65,7 @@ const BlogPost = () => {
         <meta property="og:description" content={post.description} />
         <meta property="og:image" content={post.image} />
         <meta name="twitter:card" content="summary_large_image" />
+      <link rel="canonical" href={`https://www.puetto.com/blog/${id}`} />
       </Helmet>
 
       <div className="section-container">
