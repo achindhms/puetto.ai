@@ -23,9 +23,14 @@ const Hero = () => {
           </p>
           
           <div className="hero-buttons">
-            <button className="btn-primary">
-              Book a Free Ops Audit <ArrowRight size={18} />
-            </button>
+          <a 
+  href="https://cal.com/puetto/hq" 
+  target="_blank" 
+  rel="noopener noreferrer" 
+  className="btn-primary"
+>
+  Book a Free Ops Audit <ArrowRight size={18} />
+</a>
             <a href="#services" className="btn-secondary">
               See what we build <ArrowRight size={18} />
             </a>
