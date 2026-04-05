@@ -116,7 +116,7 @@ const postData = {
 
 const BlogPost = () => {
   const { id } = useParams();
-  const post = postData[id] || postData[1];
+  const post = postData[parseInt(id)] || postData[1];
 
   useEffect(() => {
     window.scrollTo(0, 0);
