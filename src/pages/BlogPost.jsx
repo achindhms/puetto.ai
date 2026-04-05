@@ -33,6 +33,7 @@ const postData = {
     )
   },
   2: {
+    slug: 'real-time-analytics-for-smarter-engineering',
     title: 'Real-Time Analytics for Smarter Engineering',
     date: 'April 2, 2026',
     readTime: '4 Min Read',
@@ -60,6 +61,7 @@ const postData = {
     )
   },
   3: {
+    slug: 'building-a-scalable-lead-routing-system',
     title: 'Building a Scalable Lead Routing System That Actually Works',
     date: 'March 28, 2026',
     readTime: '5 Min Read',
@@ -87,6 +89,7 @@ const postData = {
     )
   },
   4: {
+    slug: 'automating-the-operating-manual',
     title: 'Automating the Operating Manual',
     date: 'March 20, 2026',
     readTime: '5 Min Read',
@@ -117,7 +120,7 @@ const postData = {
 
 const BlogPost = () => {
   const { slug } = useParams();
-  const post = postData[parseInt(id)] || postData[1];
+  const post = Object.values(postData).find(p => p.slug === slug) || postData[1];
 
   useEffect(() => {
     window.scrollTo(0, 0);
