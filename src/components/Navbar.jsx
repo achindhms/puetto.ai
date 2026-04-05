@@ -28,7 +28,14 @@ const Navbar = () => {
         
 
         <div className="navbar-actions">
-          <button className="btn-buy-now">Book Ops Audit</button>
+          <a 
+  href="https://cal.com/puetto/hq" 
+  target="_blank" 
+  rel="noopener noreferrer" 
+  className="btn-buy-now"
+>
+  Book a Free Ops Audit
+</a>
         </div>
         
         <div className="navbar-mobile-toggle" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
