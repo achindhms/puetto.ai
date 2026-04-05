@@ -5,6 +5,7 @@ import { ArrowUpRight, Clock } from 'lucide-react';
 const blogPosts = [
   {
     id: 1,
+    slug: 'the-rise-of-ai-driven-gtm-operations',
     category: 'REVENUE OPS',
     title: 'Architecting Revenue Infrastructure for Scale',
     excerpt: 'How we achieve 99% CRM field accuracy and build automated lead routing that actually works.',
@@ -13,6 +14,7 @@ const blogPosts = [
   },
   {
     id: 2,
+    slug: 'real-time-analytics-for-smarter-engineering',
     category: 'PRODUCT OPS',
     title: 'Real-Time Analytics for Smarter Engineering',
     excerpt: 'Instrumenting Mixpanel and PostHog to connect product data directly to your sales and support teams.',
@@ -21,6 +23,7 @@ const blogPosts = [
   },
   {
     id: 3,
+    slug: 'building-a-scalable-lead-routing-system',
     category: 'REVENUE OPS',
     title: 'Building a Scalable Lead Routing System That Actually Works',
     excerpt: 'How to architect a lead routing system using automation and CRM logic that scales with your team without breaking down.',
@@ -29,6 +32,7 @@ const blogPosts = [
   },
   {
     id: 4,
+    slug: 'automating-the-operating-manual',
     category: 'PEOPLE OPS',
     title: 'Automating the Operating Manual',
     excerpt: 'How we remove the manual loops from hiring, onboarding, and day-to-day people infrastructure.',
@@ -60,7 +64,7 @@ const BlogPage = () => {
         <div className="section-container">
           <div className="blog-posts-grid">
             {blogPosts.map((post) => (
-              <Link to={`/blog/${post.id}`} className="blog-post-card" key={post.id}>
+              <Link to={`/blog/${post.slug}`} className="blog-post-card" key={post.id}>
                 <div className="blog-post-image-container">
                   <img src={post.image} alt={post.title} className="blog-post-image" />
                 </div>

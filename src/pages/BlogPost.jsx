@@ -6,6 +6,7 @@ import './BlogPost.css';
 
 const postData = {
   1: {
+    slug: 'the-rise-of-ai-driven-gtm-operations',
     title: 'The Rise of AI-Driven GTM Operations in 2026',
     date: 'April 4, 2026',
     readTime: '6 Min Read',
@@ -115,7 +116,7 @@ const postData = {
 };
 
 const BlogPost = () => {
-  const { id } = useParams();
+  const { slug } = useParams();
   const post = postData[parseInt(id)] || postData[1];
 
   useEffect(() => {
@@ -131,7 +132,7 @@ const BlogPost = () => {
         <meta property="og:description" content={post.description} />
         <meta property="og:image" content={post.image} />
         <meta name="twitter:card" content="summary_large_image" />
-        <link rel="canonical" href={`https://www.puetto.com/blog/${id}`} />
+        <link rel="canonical" href={`https://www.puetto.com/blog/${slug}`} />
       </Helmet>
 
       <div className="section-container">
