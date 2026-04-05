@@ -26,17 +26,6 @@ const Navbar = () => {
           <img src="https://i.ibb.co/N2CYTcvn/Frame-1-2-removebg-preview.png" alt="Puetto Logo" className="logo-img" />
         </Link>
         
-        <div className={`navbar-links ${mobileMenuOpen ? 'mobile-active' : ''}`}>
-          {isHomePage ? (
-            <>
-              <a href="#problem" onClick={() => setMobileMenuOpen(false)}>The Problem</a>
-              <a href="#services" onClick={() => setMobileMenuOpen(false)}>What We Do</a>
-              <a href="#how" onClick={() => setMobileMenuOpen(false)}>How It Works</a>
-            </>
-          ) : (
-            <Link to="/" onClick={() => setMobileMenuOpen(false)}>Home</Link>
-          )}
-        </div>
 
         <div className="navbar-actions">
           <button className="btn-buy-now">Book Ops Audit</button>
