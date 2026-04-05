@@ -5,11 +5,13 @@ import HomePage from './pages/HomePage';
 import BlogPage from './pages/BlogPage';
 import BlogPost from './pages/BlogPost';
 import './App.css';
+import ScrollToTop from './components/ScrollToTop';
 
 function App() {
   return (
     <Router>
       <div className="app">
+        <ScrollToTop />
         <Navbar />
         <Routes>
           <Route path="/" element={<HomePage />} />
