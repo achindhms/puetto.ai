@@ -18,7 +18,7 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/blog" element={<BlogPage />} />
           <Route path="/blog/:slug" element={<BlogPost />} />
-          <Route path="/roi-calculator" element={<ROICalculator />} />
+          <Route path="/abm-roi-calculator" element={<ROICalculator />} />
         </Routes>
         <Footer />
       </div>
