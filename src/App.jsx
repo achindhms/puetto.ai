@@ -7,6 +7,8 @@ import BlogPost from './pages/BlogPost';
 import ROICalculator from './pages/ROICalculator';
 import './App.css';
 import ScrollToTop from './components/ScrollToTop';
+import WebinarROICalculator from './pages/WebinarROICalculator';
+
 
 function App() {
   return (
@@ -19,6 +21,7 @@ function App() {
           <Route path="/blog" element={<BlogPage />} />
           <Route path="/blog/:slug" element={<BlogPost />} />
           <Route path="/abm-roi-calculator" element={<ROICalculator />} />
+          <Route path="/webinar-roi-calculator" element={<WebinarROICalculator />} />
         </Routes>
         <Footer />
       </div>
