@@ -13,7 +13,7 @@ import ThoughtLeadershipROICalculator from './pages/ThoughtLeadershipROICalculat
 import LinkedInAdsROICalculator from './pages/LinkedInAdsROICalculator';
 import RetentionCalculator from './pages/RetentionCalculator';
 import RiceCalculator from './pages/RiceCalculator';
-
+import KanoCalculator from './pages/KanoCalculator';
 
 
 function App() {
@@ -33,6 +33,7 @@ function App() {
           <Route path="/linkedin-ads-roas-calculator" element={<LinkedInAdsROICalculator />} />
           <Route path="/retention-calculator" element={<RetentionCalculator />} />
           <Route path="/rice-calculator" element={<RiceCalculator />} />
+          <Route path="/kano-calculator" element={<KanoCalculator />} />
         </Routes>
         <Footer />
       </div>
