@@ -81,11 +81,11 @@ export default function RiceCalculator() {
         <title>RICE Prioritization Calculator | Score & Rank Your Roadmap | Puetto</title>
         <meta name="description" content="Free RICE prioritization calculator. Score initiatives by Reach, Impact, Confidence and Effort, rank your roadmap, spot quick wins, and export to CSV." />
         <meta name="keywords" content="RICE calculator, RICE prioritization, RICE scoring, product roadmap prioritization, reach impact confidence effort, feature prioritization tool" />
-        <link rel="canonical" href="https://puetto.ai/rice-calculator" />
+        <link rel="canonical" href="https://www.puetto.com/rice-calculator" />
         <meta property="og:type" content="website" />
         <meta property="og:title" content="RICE Prioritization Calculator | Puetto" />
         <meta property="og:description" content="Score and rank your roadmap by Reach, Impact, Confidence and Effort in seconds." />
-        <meta property="og:url" content="https://puetto.ai/rice-calculator" />
+        <meta property="og:url" content="https://www.puetto.com/rice-calculator" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="RICE Prioritization Calculator | Puetto" />
         <meta name="twitter:description" content="Score and rank your roadmap by Reach, Impact, Confidence and Effort in seconds." />
