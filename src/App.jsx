@@ -4,6 +4,7 @@ import Footer from './components/Footer';
 import HomePage from './pages/HomePage';
 import BlogPage from './pages/BlogPage';
 import BlogPost from './pages/BlogPost';
+import ROICalculator from './pages/ROICalculator';
 import './App.css';
 import ScrollToTop from './components/ScrollToTop';
 
@@ -17,6 +18,7 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/blog" element={<BlogPage />} />
           <Route path="/blog/:slug" element={<BlogPost />} />
+          <Route path="/roi-calculator" element={<ROICalculator />} />
         </Routes>
         <Footer />
       </div>
