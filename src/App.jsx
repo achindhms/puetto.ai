@@ -10,6 +10,7 @@ import ScrollToTop from './components/ScrollToTop';
 import WebinarROICalculator from './pages/WebinarROICalculator';
 import EventROICalculator from './pages/EventROICalculator';
 import ThoughtLeadershipROICalculator from './pages/ThoughtLeadershipROICalculator';
+import LinkedInAdsROICalculator from './pages/LinkedInAdsROICalculator';
 
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
           <Route path="/webinar-roi-calculator" element={<WebinarROICalculator />} />
           <Route path="/event-roi-calculator" element={<EventROICalculator />} />
           <Route path="/thought-leadership-roi-calculator" element={<ThoughtLeadershipROICalculator />} />
+          <Route path="/linkedin-ads-roas-calculator" element={<LinkedInAdsROICalculator />} />
         </Routes>
         <Footer />
       </div>
