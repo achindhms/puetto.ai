@@ -12,7 +12,6 @@ import EventROICalculator from './pages/EventROICalculator';
 import ThoughtLeadershipROICalculator from './pages/ThoughtLeadershipROICalculator';
 import LinkedInAdsROICalculator from './pages/LinkedInAdsROICalculator';
 import RetentionCalculator from './pages/RetentionCalculator';
-<Route path="/retention-calculator" element={<RetentionCalculator />} />
 
 
 function App() {
@@ -30,6 +29,7 @@ function App() {
           <Route path="/event-roi-calculator" element={<EventROICalculator />} />
           <Route path="/thought-leadership-roi-calculator" element={<ThoughtLeadershipROICalculator />} />
           <Route path="/linkedin-ads-roas-calculator" element={<LinkedInAdsROICalculator />} />
+          <Route path="/retention-calculator" element={<RetentionCalculator />} />
         </Routes>
         <Footer />
       </div>
