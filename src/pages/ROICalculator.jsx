@@ -4,13 +4,13 @@ import { ArrowRight } from 'lucide-react';
 import './ROICalculator.css';
 
 const FIELDS = [
-  { key: 'acv', label: 'Annual contract value', hint: 'Average revenue per closed deal, per year', prefix: '$', isPercent: false },
+  { key: 'acv', label: 'Annual contract value', hint: 'Average revenue per closed deal, per year', prefix: '$', isPercent: false, isFull: true },
   { key: 'accounts', label: 'Number of target accounts', hint: 'Accounts in your ABM program', prefix: null, isPercent: false },
   { key: 'mql', label: 'MQL rate on target accounts', hint: 'Share of accounts that become marketing-qualified', suffix: '%', isPercent: true },
   { key: 'sql', label: 'SQL conversion rate', hint: 'MQLs that progress to sales-qualified', suffix: '%', isPercent: true },
   { key: 'opp', label: 'Opportunity rate', hint: 'SQLs that become real opportunities', suffix: '%', isPercent: true },
   { key: 'won', label: 'Closed / won rate', hint: 'Opportunities that close as revenue', suffix: '%', isPercent: true },
-  { key: 'spend', label: 'Program spend (annual)', hint: 'Total you invest in the ABM program per year', prefix: '$', isPercent: false },
+  { key: 'spend', label: 'Program spend (annual)', hint: 'Total you invest in the ABM program per year', prefix: '$', isPercent: false, isFull: true },
 ];
 
 const num = (v) => {
@@ -117,7 +117,7 @@ export default function ROICalculator() {
 
       <div className="roi__form">
         {FIELDS.map((f) => (
-          <label className="roi__field" key={f.key}>
+          <label className={`roi__field${f.isFull ? ' roi__field--full' : ''}`} key={f.key}>
             <span className="roi__label">{f.label}</span>
             <span className="roi__hint">{f.hint}</span>
             <span className="roi__inputwrap">
