@@ -127,11 +127,11 @@ export default function WebinarROICalculator() {
         <title>Webinar ROI Calculator | Pipeline, Cost Per Lead & Payback | Puetto</title>
         <meta name="description" content="Free webinar ROI calculator. Model the revenue, pipeline, cost per lead and ROI of your webinar program from attendance, conversion and cost inputs." />
         <meta name="keywords" content="webinar ROI calculator, webinar marketing ROI, cost per webinar lead, webinar pipeline calculator, B2B webinar revenue, demand gen ROI" />
-        <link rel="canonical" href="https://puetto.com/webinar-roi-calculator" />
+        <link rel="canonical" href="https://www.puetto.com/webinar-roi-calculator" />
         <meta property="og:type" content="website" />
         <meta property="og:title" content="Webinar ROI Calculator | Puetto" />
         <meta property="og:description" content="Model the revenue, pipeline, cost per lead and ROI of your webinar program in seconds." />
-        <meta property="og:url" content="https://puetto.com/webinar-roi-calculator" />
+        <meta property="og:url" content="https://www.puetto.com/webinar-roi-calculator" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Webinar ROI Calculator | Puetto" />
         <meta name="twitter:description" content="Model the revenue, pipeline, cost per lead and ROI of your webinar program in seconds." />
