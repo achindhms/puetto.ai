@@ -94,11 +94,11 @@ export default function ROICalculator() {
         <title>ABM ROI Calculator | Account-Based Marketing Revenue & Payback | Puetto</title>
         <meta name="description" content="Free ABM ROI calculator. Model the revenue, ROI and payback period of an account-based marketing program from your contract value, target accounts and funnel conversion rates." />
         <meta name="keywords" content="ABM ROI calculator, account based marketing ROI, ABM revenue calculator, marketing payback period, B2B pipeline calculator, GTM ops" />
-        <link rel="canonical" href="https://puetto.ai/roi-calculator" />
+        <link rel="canonical" href="https://puetto.com/abm-roi-calculator" />
         <meta property="og:type" content="website" />
         <meta property="og:title" content="ABM ROI Calculator | Puetto" />
         <meta property="og:description" content="Model the revenue, ROI and payback period of an account-based marketing program in seconds." />
-        <meta property="og:url" content="https://puetto.ai/roi-calculator" />
+        <meta property="og:url" content="https://puetto.com/roi-calculator" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="ABM ROI Calculator | Puetto" />
         <meta name="twitter:description" content="Model the revenue, ROI and payback period of an account-based marketing program in seconds." />
@@ -108,7 +108,7 @@ export default function ROICalculator() {
             "name": "ABM ROI Calculator", "applicationCategory": "BusinessApplication",
             "operatingSystem": "Web", "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
             "description": "Model the revenue, ROI and payback period of an account-based marketing program.",
-            "url": "https://puetto.ai/roi-calculator", "publisher": { "@type": "Organization", "name": "Puetto" }
+            "url": "https://puetto.com/abm-roi-calculator", "publisher": { "@type": "Organization", "name": "Puetto" }
           })}
         </script>
       </Helmet>
