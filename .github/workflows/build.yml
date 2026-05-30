@@ -1,0 +1,21 @@
+name: Build and Update Sitemap
+on:
+  push:
+    branches: [main]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - run: npm install
+      - run: npm run build
+      - name: Commit updated sitemap
+        run: |
+          git config user.email "action@github.com"
+          git config user.name "GitHub Action"
+          git add dist/sitemap.xml
+          git commit -m "auto rebuild sitemap" || echo "No changes to commit"
+          git push
