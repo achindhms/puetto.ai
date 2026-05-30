@@ -17,6 +17,7 @@ const Footer = () => {
               className="footer-logo-img"
             />
           </Link>
+          <span className="footer-logo-name">puetto</span>
         </div>
         <p className="footer-topbar-tagline">Product, Revenue &amp; People Ops</p>
       </div>
@@ -24,16 +25,22 @@ const Footer = () => {
       {/* Middle grid */}
       <div className="footer-mid">
 
-        {/* Contact */}
+        {/* Contact + Offices */}
         <div className="footer-contact">
           <div className="footer-contact-group">
             <p>Puetto Inc.</p>
-            <p>123 Ops Lane,</p>
-            <p>Bengaluru, India</p>
+            <a href="mailto:ops@puetto.com">ops@puetto.com</a>
+            <a href="tel:+919072012384">+91 90720 12384</a>
           </div>
-          <div className="footer-contact-group">
-            <p><a href="mailto:hello@puetto.com">hello@puetto.com</a></p>
-            <p><a href="tel:+919900000000">+91 99 0000 0000</a></p>
+          <div className="footer-offices">
+            <p className="footer-office-tag">India</p>
+            <p className="footer-office-name">HSR Layout, Bangalore</p>
+            <p className="footer-office-tag">USA</p>
+            <p className="footer-office-name">San Francisco, CA</p>
+            <p className="footer-office-tag">Singapore</p>
+            <p className="footer-office-name">Marina Bay, Singapore</p>
+            <p className="footer-office-tag">UAE</p>
+            <p className="footer-office-name">Dubai, UAE</p>
           </div>
           <div className="footer-hours">
             <div className="footer-hours-row">
@@ -45,9 +52,9 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Products */}
+        {/* Resources */}
         <div className="footer-col">
-          <h4 className="footer-col-heading">Products</h4>
+          <h4 className="footer-col-heading">Resources</h4>
           <ul>
             <li><Link to="/calculators">Calculators</Link></li>
             <li><Link to="/abm-ops">ABM Ops</Link></li>
@@ -83,10 +90,10 @@ const Footer = () => {
       <div className="footer-bottom">
         <p className="footer-copy">© 2026 Puetto. All Rights Reserved.</p>
         <div className="footer-bottom-socials">
-          <a href="#" aria-label="LinkedIn"><Linkedin size={16} /></a>
-          <a href="#" aria-label="Facebook"><Facebook size={16} /></a>
-          <a href="#" aria-label="Instagram"><Instagram size={16} /></a>
-          <a href="#" aria-label="Twitter"><Twitter size={16} /></a>
+          <a href="#" aria-label="LinkedIn"><Linkedin size={15} /></a>
+          <a href="#" aria-label="Facebook"><Facebook size={15} /></a>
+          <a href="#" aria-label="Instagram"><Instagram size={15} /></a>
+          <a href="#" aria-label="Twitter"><Twitter size={15} /></a>
         </div>
         <div className="footer-bottom-links">
           <a href="#">Terms</a>
