@@ -77,8 +77,10 @@ export default function CalculatorsHub() {
       </Helmet>
 
       <header className="chub__hero">
-        <h1 className="chub__title">Calculators</h1>
-        <p className="chub__intro">Want to model your marketing ROI, prove what an event delivered, or pressure-test your SaaS retention? Explore Puetto's <span className="chub__grad">free interactive calculators</span> below.</p>
+        <div className="chub__hero-inner">
+          <h1 className="chub__title">Calculators</h1>
+          <p className="chub__intro">Want to model your marketing ROI, prove what an event delivered, or pressure-test your SaaS retention? Explore Puetto's <span className="chub__grad">free interactive calculators</span> below.</p>
+        </div>
       </header>
 
       <div className="chub__body">
