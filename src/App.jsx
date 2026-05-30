@@ -22,6 +22,8 @@ import AbmTechStack from './pages/AbmTechStack';
 import AbmSignalDataCrm from './pages/AbmSignalDataCrm';
 import AbmMetricsRoi from './pages/AbmMetricsRoi';
 import AbmVsDemandGen from './pages/AbmVsDemandGen';
+import AccountBasedMarketingGuide from './pages/AccountBasedMarketingGuide';
+
 
 
 function App() {
@@ -50,6 +52,8 @@ function App() {
            <Route path="/abm-ops/abm-signal-data-crm" element={<AbmSignalDataCrm />} />
            <Route path="/abm-ops/abm-metrics-roi" element={<AbmMetricsRoi />} />
            <Route path="/abm-ops/abm-vs-demand-gen" element={<AbmVsDemandGen />} />
+          <Route path="/abm-ops/account-based-marketing-guide" element={<AccountBasedMarketingGuide />} />
+
 
         </Routes>
         <Footer />
