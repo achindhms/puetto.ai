@@ -5,31 +5,26 @@
   overflow: hidden;
   position: relative;
 }
-
-
 /* Zyforia Style Main Grid */
 .footer-main-grid {
   display: grid;
-  grid-template-columns: 1.5fr 1fr;
-  gap: 4rem;
+  grid-template-columns: 1.6fr 1fr 1fr 1fr;
+  gap: 3rem;
   padding: 6rem 0;
   border-top: 1px solid rgba(0, 0, 0, 0.05);
   position: relative;
   z-index: 2;
 }
-
 .footer-logo-wrap {
   display: flex;
   align-items: center;
   gap: 0.75rem;
   margin-bottom: 0.5rem;
 }
-
 .footer-logo-img-new {
   height: 60px;
   width: auto;
 }
-
 .footer-brand-statement {
   font-size: 1rem;
   font-weight: 500;
@@ -38,57 +33,53 @@
   margin-bottom: 1rem;
   white-space: nowrap;
 }
-
 .footer-social-links {
   display: flex;
   gap: 1.25rem;
   margin-bottom: 4rem;
 }
-
 .footer-social-links a {
   color: #111111;
   transition: opacity 0.2s ease, transform 0.2s ease;
 }
-
 .footer-social-links a:hover {
   opacity: 0.6;
   transform: translateY(-2px);
 }
-
 .copyright-text {
   font-size: 0.9rem;
   color: #888;
 }
 
+/* Nav columns (grouped links) */
+.footer-nav-heading {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #111;
+  margin: 0 0 1.25rem 0;
+}
 .footer-nav-column ul {
   list-style: none;
   padding: 0;
   margin: 0;
   display: flex;
-  gap: 2.5rem;
+  flex-direction: column;
+  gap: 0.85rem;
 }
-
 .footer-nav-column li {
   margin-bottom: 0;
 }
-
 .footer-nav-column a {
   color: #666;
   text-decoration: none;
-  font-size: 1rem;
+  font-size: 0.95rem;
   transition: color 0.2s ease;
   font-weight: 500;
 }
-
 .footer-nav-column a:hover {
   color: #111;
-}
-
-.minimalist-links {
-  display: flex;
-  justify-content: flex-end;
-  align-items: flex-start;
-  padding-top: 1rem;
 }
 
 /* Massive Watermark - Enhanced Visibility on White */
@@ -99,44 +90,48 @@
   pointer-events: none;
   overflow: hidden;
 }
-
 .watermark-text {
   font-size: 25vw;
   font-weight: 700;
   line-height: 0.8;
   letter-spacing: -0.05em;
-  /* Premium Outline Gradient Style - Softened for White BG */
   color: transparent;
   -webkit-text-stroke: 1px transparent;
   background: linear-gradient(to right, #f59e0b, #ef4444, #3b82f6);
   -webkit-background-clip: text;
   background-clip: text;
-  opacity: 0.15; /* Lowered for white background harmony */
+  opacity: 0.15;
   display: block;
   transform: translateY(25%);
   user-select: none;
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1100px) {
   .footer-main-grid {
-    grid-template-columns: 1.5fr 1fr 1fr 1fr;
-    gap: 2rem;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2.5rem 2rem;
+  }
+  .footer-brand-column {
+    grid-column: 1 / -1;
+  }
+  .footer-social-links {
+    margin-bottom: 1.5rem;
   }
 }
-
-@media (max-width: 992px) {
+@media (max-width: 680px) {
   .footer-main-grid {
     grid-template-columns: 1fr 1fr;
-    gap: 4rem;
+    gap: 2.5rem 1.5rem;
+    padding: 4rem 0;
   }
-  .pre-footer-cta h2 { font-size: 3rem; }
+  .footer-brand-column {
+    grid-column: 1 / -1;
+  }
+  .watermark-text { font-size: 30vw; }
 }
-
-@media (max-width: 576px) {
+@media (max-width: 420px) {
   .footer-main-grid {
     grid-template-columns: 1fr;
-    gap: 3rem;
+    gap: 2.5rem;
   }
-  .footer-cta-buttons { flex-direction: column; gap: 1.5rem; }
-  .watermark-text { font-size: 30vw; }
 }
