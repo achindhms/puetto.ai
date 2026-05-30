@@ -15,13 +15,13 @@ import RetentionCalculator from './pages/RetentionCalculator';
 import RiceCalculator from './pages/RiceCalculator';
 import KanoCalculator from './pages/KanoCalculator';
 import CalculatorsHub from './pages/CalculatorsHub';
-import AbmOpsPillar from './pages/abm-ops/AbmOpsPillar';
-import WhatIsAbm from './pages/abm-ops/WhatIsAbm';
-import AbmStrategyFramework from './pages/abm-ops/AbmStrategyFramework';
-import AbmTechStack from './pages/abm-ops/AbmTechStack';
-import AbmSignalDataCrm from './pages/abm-ops/AbmSignalDataCrm';
-import AbmMetricsRoi from './pages/abm-ops/AbmMetricsRoi';
-import AbmVsDemandGen from './pages/abm-ops/AbmVsDemandGen';
+import AbmOpsPillar from './pages/AbmOpsPillar';
+import WhatIsAbm from './pages/WhatIsAbm';
+import AbmStrategyFramework from './pages/AbmStrategyFramework';
+import AbmTechStack from './pages/AbmTechStack';
+import AbmSignalDataCrm from './pages/AbmSignalDataCrm';
+import AbmMetricsRoi from './pages/AbmMetricsRoi';
+import AbmVsDemandGen from './pages/AbmVsDemandGen';
 
 
 function App() {
@@ -44,12 +44,13 @@ function App() {
           <Route path="/kano-calculator" element={<KanoCalculator />} />
           <Route path="/calculators" element={<CalculatorsHub />} />
           <Route path="/abm-ops" element={<AbmOpsPillar />} />
-<Route path="/abm-ops/what-is-abm" element={<WhatIsAbm />} />
-<Route path="/abm-ops/abm-strategy-framework" element={<AbmStrategyFramework />} />
-<Route path="/abm-ops/abm-tech-stack" element={<AbmTechStack />} />
-<Route path="/abm-ops/abm-signal-data-crm" element={<AbmSignalDataCrm />} />
-<Route path="/abm-ops/abm-metrics-roi" element={<AbmMetricsRoi />} />
-<Route path="/abm-ops/abm-vs-demand-gen" element={<AbmVsDemandGen />} />
+          <Route path="/abm-ops/what-is-abm" element={<WhatIsAbm />} />
+           <Route path="/abm-ops/abm-strategy-framework" element={<AbmStrategyFramework />} />
+           <Route path="/abm-ops/abm-tech-stack" element={<AbmTechStack />} />
+           <Route path="/abm-ops/abm-signal-data-crm" element={<AbmSignalDataCrm />} />
+           <Route path="/abm-ops/abm-metrics-roi" element={<AbmMetricsRoi />} />
+           <Route path="/abm-ops/abm-vs-demand-gen" element={<AbmVsDemandGen />} />
+
         </Routes>
         <Footer />
       </div>
