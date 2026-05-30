@@ -1,8 +1,7 @@
 import React from 'react';
-import { Facebook, Linkedin, Twitter } from 'lucide-react';
+import { ArrowRight, Facebook, Linkedin, Twitter } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import './Footer.css';
-
 const Footer = () => {
   return (
     <footer className="footer-section">
@@ -27,46 +26,16 @@ const Footer = () => {
               Copyright © 2026 Puetto. All Rights Reserved.
             </p>
           </div>
-
-          {/* Calculators */}
-          <div className="footer-nav-column">
-            <h4 className="footer-nav-heading">Calculators</h4>
+          <div className="footer-nav-column minimalist-links">
             <ul>
-              <li><Link to="/calculators">All calculators</Link></li>
-              <li><Link to="/abm-roi-calculator">ABM ROI</Link></li>
-              <li><Link to="/webinar-roi-calculator">Webinar ROI</Link></li>
-              <li><Link to="/event-roi-calculator">Event ROI</Link></li>
-              <li><Link to="/linkedin-ads-roas-calculator">LinkedIn Ads ROI</Link></li>
-              <li><Link to="/retention-calculator">Retention (NRR/GRR)</Link></li>
-              <li><Link to="/rice-calculator">RICE prioritization</Link></li>
-              <li><Link to="/kano-calculator">Kano analysis</Link></li>
-            </ul>
-          </div>
-
-          {/* Resources / ABM Ops */}
-          <div className="footer-nav-column">
-            <h4 className="footer-nav-heading">ABM Ops</h4>
-            <ul>
-              <li><Link to="/abm-ops">ABM Ops hub</Link></li>
-              <li><Link to="/abm-ops/account-based-marketing-guide">ABM guide</Link></li>
-              <li><Link to="/abm-ops/what-is-abm">What is ABM?</Link></li>
-              <li><Link to="/abm-ops/abm-strategy-framework">ABM strategy</Link></li>
-              <li><Link to="/abm-ops/abm-tech-stack">ABM tech stack</Link></li>
-              <li><Link to="/abm-ops/abm-metrics-roi">ABM metrics & ROI</Link></li>
-            </ul>
-          </div>
-
-          {/* Company */}
-          <div className="footer-nav-column">
-            <h4 className="footer-nav-heading">Company</h4>
-            <ul>
+              <li><Link to="/calculators">Calculators</Link></li>
+              <li><Link to="/abm-ops">ABM Ops</Link></li>
               <li><Link to="/blog">Blog</Link></li>
               <li><a href="#">Terms of Service</a></li>
               <li><a href="#">Privacy Policy</a></li>
             </ul>
           </div>
         </div>
-
         {/* Large Watermark Text */}
         <div className="footer-watermark">
           <span className="watermark-text">Puetto</span>
@@ -75,5 +44,4 @@ const Footer = () => {
     </footer>
   );
 };
-
 export default Footer;
