@@ -14,6 +14,7 @@ import LinkedInAdsROICalculator from './pages/LinkedInAdsROICalculator';
 import RetentionCalculator from './pages/RetentionCalculator';
 import RiceCalculator from './pages/RiceCalculator';
 import KanoCalculator from './pages/KanoCalculator';
+import CalculatorsHub from './pages/CalculatorsHub';
 
 
 function App() {
@@ -34,6 +35,7 @@ function App() {
           <Route path="/retention-calculator" element={<RetentionCalculator />} />
           <Route path="/rice-calculator" element={<RiceCalculator />} />
           <Route path="/kano-calculator" element={<KanoCalculator />} />
+          <Route path="/calculators" element={<CalculatorsHub />} />
         </Routes>
         <Footer />
       </div>
