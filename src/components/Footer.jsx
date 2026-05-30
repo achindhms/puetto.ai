@@ -17,7 +17,6 @@ const Footer = () => {
               className="footer-logo-img"
             />
           </Link>
-          <span className="footer-logo-name">puetto</span>
         </div>
         <p className="footer-topbar-tagline">Product, Revenue &amp; People Ops</p>
       </div>
