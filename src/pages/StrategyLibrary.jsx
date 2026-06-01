@@ -27,11 +27,11 @@ export const STRATEGY_CLUSTERS = [
     summary:
       'Turn the ICP into an objective, points-based scoring rubric and a tiered target list — so account selection is repeatable and evidence-led, not political.',
     spokes: [
-      { path: '/abm-ops/account-scoring-model', title: 'How to Build an Account Scoring Model', blurb: 'Fit + intent + engagement as weighted inputs, and how to turn them into a single score.', live: false },
-      { path: '/abm-ops/abm-account-tiering', title: 'ABM Account Tiering: 1:1, 1:Few, 1:Many', blurb: 'How to size each tier, the resource trade-offs, and which plays each tier warrants.', live: false },
-      { path: '/abm-ops/fit-vs-intent', title: 'Fit vs. Intent: Should We, and Is Now the Moment?', blurb: 'How to weight fit against readiness so you prioritise the right accounts at the right time.', live: false },
-      { path: '/abm-ops/target-account-list-size', title: 'How Big Should Your Target Account List Be?', blurb: 'Account-count ranges per tier and why a focused list beats a sprawling one.', live: false },
-      { path: '/abm-ops/account-scoring-rubric', title: 'The 100-Point Account Scoring Rubric', blurb: 'A worked rubric you can adapt, with a downloadable template.', live: false },
+      { path: '/abm-ops/account-scoring-model', title: 'How to Build an Account Scoring Model', blurb: 'Fit + intent + engagement as weighted inputs, and how to turn them into a single score.', live: true },
+      { path: '/abm-ops/abm-account-tiering', title: 'ABM Account Tiering: 1:1, 1:Few, 1:Many', blurb: 'How to size each tier, the resource trade-offs, and which plays each tier warrants.', live: true },
+      { path: '/abm-ops/fit-vs-intent', title: 'Fit vs. Intent: Should We, and Is Now the Moment?', blurb: 'How to weight fit against readiness so you prioritise the right accounts at the right time.', live: true },
+      { path: '/abm-ops/target-account-list-size', title: 'How Big Should Your Target Account List Be?', blurb: 'Account-count ranges per tier and why a focused list beats a sprawling one.', live: true },
+      { path: '/abm-ops/account-scoring-rubric', title: 'The 100-Point Account Scoring Rubric', blurb: 'A worked rubric you can adapt, with a downloadable template.', live: true },
     ],
   },
   {
@@ -40,11 +40,11 @@ export const STRATEGY_CLUSTERS = [
     summary:
       'B2B purchases are made by committees, not individuals. Map the roles that influence each deal and plan coverage before gaps become deal risk.',
     spokes: [
-      { path: '/abm-ops/map-buying-committee', title: 'How to Map the B2B Buying Committee', blurb: 'A practical method for documenting who decides, who influences, and where coverage is thin.', live: false },
-      { path: '/abm-ops/buying-committee-roles', title: 'The Buying Committee Roles That Drive Deals', blurb: 'Champion, economic buyer, technical evaluator, end user, procurement — and how to reach each.', live: false },
-      { path: '/abm-ops/champion-vs-economic-buyer', title: 'Champion vs. Economic Buyer', blurb: 'Who to prioritise and when, and why single-threaded deals stall.', live: false },
-      { path: '/abm-ops/buying-committee-map-template', title: 'Buying Committee Mapping Template', blurb: 'The four-question minimum map and how to operationalise it in your CRM.', live: false },
-      { path: '/abm-ops/multi-threading', title: 'Multi-Threading the Buying Group', blurb: 'Engaging the whole committee with role-specific message tracks, not one persona.', live: false },
+      { path: '/abm-ops/map-buying-committee', title: 'How to Map the B2B Buying Committee', blurb: 'A practical method for documenting who decides, who influences, and where coverage is thin.', live: true },
+      { path: '/abm-ops/buying-committee-roles', title: 'The Buying Committee Roles That Drive Deals', blurb: 'Champion, economic buyer, technical evaluator, end user, procurement — and how to reach each.', live: true },
+      { path: '/abm-ops/champion-vs-economic-buyer', title: 'Champion vs. Economic Buyer', blurb: 'Who to prioritise and when, and why single-threaded deals stall.', live: true },
+      { path: '/abm-ops/buying-committee-map-template', title: 'Buying Committee Mapping Template', blurb: 'The four-question minimum map and how to operationalise it in your CRM.', live: true },
+      { path: '/abm-ops/multi-threading', title: 'Multi-Threading the Buying Group', blurb: 'Engaging the whole committee with role-specific message tracks, not one persona.', live: true },
     ],
   },
 ];
