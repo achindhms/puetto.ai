@@ -23,6 +23,11 @@ import AbmSignalDataCrm from './pages/AbmSignalDataCrm';
 import AbmMetricsRoi from './pages/AbmMetricsRoi';
 import AbmVsDemandGen from './pages/AbmVsDemandGen';
 import AccountBasedMarketingGuide from './pages/AccountBasedMarketingGuide';
+import BuildB2bIcp from './pages/BuildB2bIcp';
+import IcpVsBuyerPersona from './pages/IcpVsBuyerPersona';
+import ValidateIcpClosedWon from './pages/ValidateIcpClosedWon';
+import IcpCriteriaExplained from './pages/IcpCriteriaExplained';
+import CommonIcpMistakes from './pages/CommonIcpMistakes';
 
 
 
@@ -53,6 +58,11 @@ function App() {
            <Route path="/abm-ops/abm-metrics-roi" element={<AbmMetricsRoi />} />
            <Route path="/abm-ops/abm-vs-demand-gen" element={<AbmVsDemandGen />} />
           <Route path="/abm-ops/account-based-marketing-guide" element={<AccountBasedMarketingGuide />} />
+          <Route path="/abm-ops/how-to-build-b2b-icp" element={<BuildB2bIcp />} />
+<Route path="/abm-ops/icp-vs-buyer-persona" element={<IcpVsBuyerPersona />} />
+<Route path="/abm-ops/validate-icp-closed-won-data" element={<ValidateIcpClosedWon />} />
+<Route path="/abm-ops/icp-firmographic-technographic-behavioral" element={<IcpCriteriaExplained />} />
+<Route path="/abm-ops/common-icp-mistakes" element={<CommonIcpMistakes />} />
 
 
         </Routes>
