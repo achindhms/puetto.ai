@@ -37,7 +37,6 @@ import CommonIcpMistakes from './pages/CommonIcpMistakes';
 
 
 
-
 function App() {
   return (
     <Router>
