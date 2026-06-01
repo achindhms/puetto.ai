@@ -52,7 +52,7 @@ export const STRATEGY_CLUSTERS = [
 export default function StrategyLibrary() {
   const rootRef = useRef(null);
   const url = 'https://www.puetto.com/abm-ops/strategy-account-selection';
-  const title = 'Strategy & Account Selection — The Library';
+  const title = 'Account-Based Marketing: Strategy & Account Selection';
   const description =
     'A focused library on ABM strategy and account selection: defining and validating your ICP, scoring and tiering accounts, and mapping the B2B buying committee.';
 
@@ -104,7 +104,7 @@ export default function StrategyLibrary() {
         <div className="abm__hero-inner">
           <div className="abm__eyebrow">ABM Ops · Pillar</div>
           <h1 className="abm__hero-title">
-            <span className="abm__grad">Strategy</span> &amp; account selection
+            <span className="abm__grad">Account-Based Marketing:</span> Strategy &amp; account selection
           </h1>
           <p className="abm__hero-intro">
             A sharp ICP and a defensible target account list. Without these, everything
