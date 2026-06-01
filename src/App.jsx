@@ -29,6 +29,11 @@ import IcpVsBuyerPersona from './pages/IcpVsBuyerPersona';
 import ValidateIcpClosedWon from './pages/ValidateIcpClosedWon';
 import IcpCriteriaExplained from './pages/IcpCriteriaExplained';
 import CommonIcpMistakes from './pages/CommonIcpMistakes';
+import AccountScoringModel from './pages/AccountScoringModel';
+import AbmAccountTiering from './pages/AbmAccountTiering';
+import FitVsIntent from './pages/FitVsIntent';
+import TargetAccountListSize from './pages/TargetAccountListSize';
+import AccountScoringRubric from './pages/AccountScoringRubric';
 
 function App() {
   return (
@@ -63,6 +68,11 @@ function App() {
           <Route path="/abm-ops/validate-icp-closed-won-data" element={<ValidateIcpClosedWon />} />
           <Route path="/abm-ops/icp-firmographic-technographic-behavioral" element={<IcpCriteriaExplained />} />
           <Route path="/abm-ops/common-icp-mistakes" element={<CommonIcpMistakes />} />
+          <Route path="/abm-ops/account-scoring-model" element={<AccountScoringModel />} />
+<Route path="/abm-ops/abm-account-tiering" element={<AbmAccountTiering />} />
+<Route path="/abm-ops/fit-vs-intent" element={<FitVsIntent />} />
+<Route path="/abm-ops/target-account-list-size" element={<TargetAccountListSize />} />
+<Route path="/abm-ops/account-scoring-rubric" element={<AccountScoringRubric />} />
         </Routes>
         <Footer />
       </div>
