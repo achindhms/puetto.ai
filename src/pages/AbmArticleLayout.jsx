@@ -8,11 +8,11 @@ import './abm.css';
 export const PILLAR = { path: '/abm-ops', title: 'ABM Ops', label: 'ABM Ops hub' };
 export const CLUSTER = [
   { path: '/abm-ops/what-is-abm', title: 'What Is Account-Based Marketing?', blurb: 'The definition, how ABM differs from traditional demand gen, and when it makes sense.' },
-  { path: '/abm-ops/abm-strategy-framework', title: 'How to Build an ABM Strategy', blurb: 'A step-by-step framework: ICP, account selection, plays, and orchestration.' },
   { path: '/abm-ops/abm-tech-stack', title: 'The ABM Tech Stack Explained', blurb: 'The tools that run an account-based motion and how they fit together.' },
   { path: '/abm-ops/abm-signal-data-crm', title: 'Signal Data & CRM for ABM', blurb: 'Why clean signal data and a connected CRM are the foundation of ABM ops.' },
   { path: '/abm-ops/abm-metrics-roi', title: 'ABM Metrics & ROI That Matter', blurb: 'The metrics that prove ABM is working, and the ones that mislead.' },
   { path: '/abm-ops/abm-vs-demand-gen', title: 'ABM vs Demand Gen', blurb: 'How the two approaches differ, and why most teams need both.' },
+  { path: '/abm-ops/strategy-account-selection', title: 'Strategy & Account Selection', blurb: 'Defining your ICP, scoring and tiering accounts, and mapping the buying committee.' },
 ];
 
 export function AbmAuthorLine() {
