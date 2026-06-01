@@ -28,6 +28,8 @@ import IcpVsBuyerPersona from './pages/IcpVsBuyerPersona';
 import ValidateIcpClosedWon from './pages/ValidateIcpClosedWon';
 import IcpCriteriaExplained from './pages/IcpCriteriaExplained';
 import CommonIcpMistakes from './pages/CommonIcpMistakes';
+import StrategyLibrary from './pages/StrategyLibrary';
+
 
 
 
@@ -63,6 +65,9 @@ function App() {
 <Route path="/abm-ops/validate-icp-closed-won-data" element={<ValidateIcpClosedWon />} />
 <Route path="/abm-ops/icp-firmographic-technographic-behavioral" element={<IcpCriteriaExplained />} />
 <Route path="/abm-ops/common-icp-mistakes" element={<CommonIcpMistakes />} />
+          <Route path="/abm-ops/strategy-account-selection" element={<StrategyLibrary />} />
+
+
 
 
         </Routes>
