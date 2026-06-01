@@ -40,11 +40,11 @@ export const STRATEGY_CLUSTERS = [
     summary:
       'B2B purchases are made by committees, not individuals. Map the roles that influence each deal and plan coverage before gaps become deal risk.',
     spokes: [
-      { path: '/abm-ops/map-buying-committee', title: 'How to Map the B2B Buying Committee', blurb: 'A practical method for documenting who decides, who influences, and where coverage is thin.', live: true },
-      { path: '/abm-ops/buying-committee-roles', title: 'The Buying Committee Roles That Drive Deals', blurb: 'Champion, economic buyer, technical evaluator, end user, procurement — and how to reach each.', live: true },
-      { path: '/abm-ops/champion-vs-economic-buyer', title: 'Champion vs. Economic Buyer', blurb: 'Who to prioritise and when, and why single-threaded deals stall.', live: true },
-      { path: '/abm-ops/buying-committee-map-template', title: 'Buying Committee Mapping Template', blurb: 'The four-question minimum map and how to operationalise it in your CRM.', live: true },
-      { path: '/abm-ops/multi-threading', title: 'Multi-Threading the Buying Group', blurb: 'Engaging the whole committee with role-specific message tracks, not one persona.', live: true },
+      { path: '/abm-ops/map-buying-committee', title: 'How to Map the B2B Buying Committee', blurb: 'A practical method for documenting who decides, who influences, and where coverage is thin.', live: false },
+      { path: '/abm-ops/buying-committee-roles', title: 'The Buying Committee Roles That Drive Deals', blurb: 'Champion, economic buyer, technical evaluator, end user, procurement — and how to reach each.', live: false },
+      { path: '/abm-ops/champion-vs-economic-buyer', title: 'Champion vs. Economic Buyer', blurb: 'Who to prioritise and when, and why single-threaded deals stall.', live: false },
+      { path: '/abm-ops/buying-committee-map-template', title: 'Buying Committee Mapping Template', blurb: 'The four-question minimum map and how to operationalise it in your CRM.', live: false },
+      { path: '/abm-ops/multi-threading', title: 'Multi-Threading the Buying Group', blurb: 'Engaging the whole committee with role-specific message tracks, not one persona.', live: false },
     ],
   },
 ];
