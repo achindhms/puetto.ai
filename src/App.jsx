@@ -29,6 +29,11 @@ import ValidateIcpClosedWon from './pages/ValidateIcpClosedWon';
 import IcpCriteriaExplained from './pages/IcpCriteriaExplained';
 import CommonIcpMistakes from './pages/CommonIcpMistakes';
 import StrategyLibrary from './pages/StrategyLibrary';
+import BuildB2bIcp from './pages/BuildB2bIcp';
+import IcpVsBuyerPersona from './pages/IcpVsBuyerPersona';
+import ValidateIcpClosedWon from './pages/ValidateIcpClosedWon';
+import IcpCriteriaExplained from './pages/IcpCriteriaExplained';
+import CommonIcpMistakes from './pages/CommonIcpMistakes';
 
 
 
@@ -65,8 +70,12 @@ function App() {
 <Route path="/abm-ops/validate-icp-closed-won-data" element={<ValidateIcpClosedWon />} />
 <Route path="/abm-ops/icp-firmographic-technographic-behavioral" element={<IcpCriteriaExplained />} />
 <Route path="/abm-ops/common-icp-mistakes" element={<CommonIcpMistakes />} />
-          <Route path="/abm-ops/strategy-account-selection" element={<StrategyLibrary />} />
-
+<Route path="/abm-ops/strategy-account-selection" element={<StrategyLibrary />} />
+<Route path="/abm-ops/how-to-build-b2b-icp" element={<BuildB2bIcp />} />
+<Route path="/abm-ops/icp-vs-buyer-persona" element={<IcpVsBuyerPersona />} />
+<Route path="/abm-ops/validate-icp-closed-won-data" element={<ValidateIcpClosedWon />} />
+<Route path="/abm-ops/icp-firmographic-technographic-behavioral" element={<IcpCriteriaExplained />} />
+<Route path="/abm-ops/common-icp-mistakes" element={<CommonIcpMistakes />} />
 
 
 
