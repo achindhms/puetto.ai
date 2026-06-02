@@ -34,6 +34,9 @@ import AbmAccountTiering from './pages/AbmAccountTiering';
 import FitVsIntent from './pages/FitVsIntent';
 import TargetAccountListSize from './pages/TargetAccountListSize';
 import AccountScoringRubric from './pages/AccountScoringRubric';
+import AbmToolLibrary from './pages/AbmToolLibrary';
+import AbmToolCategory from './pages/AbmToolCategory';
+import AbmToolReview from './pages/AbmToolReview';
 
 function App() {
   return (
@@ -73,6 +76,9 @@ function App() {
 <Route path="/abm-ops/fit-vs-intent" element={<FitVsIntent />} />
 <Route path="/abm-ops/target-account-list-size" element={<TargetAccountListSize />} />
 <Route path="/abm-ops/account-scoring-rubric" element={<AccountScoringRubric />} />
+          <Route path="/abm-ops/tools" element={<AbmToolLibrary />} />
+<Route path="/abm-ops/tools/:categorySlug" element={<AbmToolCategory />} />
+<Route path="/abm-ops/tools/:categorySlug/:toolSlug" element={<AbmToolReview />} />
         </Routes>
         <Footer />
       </div>
