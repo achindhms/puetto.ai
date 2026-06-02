@@ -81,7 +81,7 @@ export const TOOLS = [
     priceFrom: 'From ~$39/mo',
     bestForTag: 'High-volume outbound',
     alternatives: ['instantly', 'lemlist', 'apollo-sequences'],
-    sourceLinks: [{ label: 'Smartlead on G2', url: 'https://www.g2.com/products/smartlead-ai/reviews' }, { label: 'r/Emailmarketing', url: 'https://www.reddit.com/r/Emailmarketing/' }],
+    sourceLinks: [{ label: 'Smartlead on G2', url: 'https://www.g2.com/products/smartlead/reviews' }, { label: 'r/Emailmarketing', url: 'https://www.reddit.com/r/Emailmarketing/' }],
   },
   {
     slug: 'instantly',
