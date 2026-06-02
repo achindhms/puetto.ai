@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import sitemap from 'vite-plugin-sitemap'
+import { ALL_TOOL_LIBRARY_ROUTES } from './src/pages/abmToolsData'
 
 const routes = [
   '/',
@@ -34,8 +35,9 @@ const routes = [
   '/thought-leadership-roi-calculator',
   '/linkedin-ads-roas-calculator',
   '/retention-calculator',
-  '/rice-calculator',
   '/kano-calculator',
+  '/rice-calculator',
+  ...ALL_TOOL_LIBRARY_ROUTES,
 ]
 
 export default defineConfig({
