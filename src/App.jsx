@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Analytics } from '@vercel/analytics/react';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import HomePage from './pages/HomePage';
@@ -81,6 +82,7 @@ function App() {
 <Route path="/abm-ops/tools/:categorySlug/:toolSlug" element={<AbmToolReview />} />
         </Routes>
         <Footer />
+        <Analytics />
       </div>
     </Router>
   );
