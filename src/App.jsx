@@ -42,6 +42,7 @@ import PeopleOpsWhatIsFractionalHr from './pages/PeopleOpsWhatIsFractionalHr';
 import PeopleOpsHrForStartups from './pages/PeopleOpsHrForStartups';
 import PeopleOpsVsHr from './pages/PeopleOpsVsHr';
 import PeopleOpsOutsourcingHrProsCons from './pages/PeopleOpsOutsourcingHrProsCons';
+import PeopleOpsCompleteGuide from './pages/PeopleOpsCompleteGuide';
 
 
 function App() {
@@ -90,6 +91,7 @@ function App() {
 <Route path="/people-ops/hr-for-startups" element={<PeopleOpsHrForStartups />} />
 <Route path="/people-ops/people-operations-vs-hr" element={<PeopleOpsVsHr />} />
 <Route path="/people-ops/outsourcing-hr-pros-and-cons" element={<PeopleOpsOutsourcingHrProsCons />} />
+          <Route path="/people-ops/complete-guide" element={<PeopleOpsCompleteGuide />} />
         </Routes>
         <Footer />
       </div>
