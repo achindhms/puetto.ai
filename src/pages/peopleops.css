@@ -141,3 +141,30 @@
   .pops__grid, .pops__related-cols, .pops__stats { grid-template-columns: 1fr; }
   .pops__cta { padding: 28px 20px; }
 }
+
+/* ---- Complete-guide elements ---- */
+.pops__tldr {
+  background: #0a0a0a; color: #fff; border-radius: 16px; padding: 26px 30px; margin: 8px 0 32px;
+}
+.pops__tldr h2 { color: #fff; margin: 0 0 14px; font-size: 1.15rem; }
+.pops__tldr ul { margin: 0; padding-left: 20px; }
+.pops__tldr li { color: #e5e7eb; font-size: 1rem; margin: 0 0 9px; }
+.pops__tldr li::marker { color: #FF4D6D; }
+
+.pops__toc {
+  border: 1px solid var(--line); border-radius: 14px; padding: 22px 26px; margin: 0 0 36px; background: #fff;
+}
+.pops__toc h2 { margin: 0 0 12px; font-size: 1rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); }
+.pops__toc ol { margin: 0; padding-left: 20px; columns: 2; column-gap: 32px; }
+.pops__toc li { margin: 0 0 8px; font-size: 0.98rem; }
+.pops__toc a { color: var(--ink); border-bottom: none; }
+.pops__toc a:hover { color: var(--cta); }
+
+.pops h2[id], .pops h3[id] { scroll-margin-top: 110px; }
+
+/* Glossary as definition list */
+.pops__gloss { margin: 16px 0 8px; }
+.pops__gloss dt { font-weight: 700; color: var(--ink); margin: 16px 0 4px; font-size: 1.05rem; }
+.pops__gloss dd { margin: 0; color: var(--body); font-size: 1.02rem; line-height: 1.6; }
+
+@media (max-width: 760px) { .pops__toc ol { columns: 1; } }
