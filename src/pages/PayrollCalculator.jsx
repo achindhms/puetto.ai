@@ -2,7 +2,6 @@ import { useState, useEffect, useRef, useMemo } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { ArrowRight, AlertTriangle } from 'lucide-react';
-import RelatedLinks from '../components/RelatedLinks';
 import {
   US_STATES, INDIA, UAE, PERIODS, REGION_GROUPS,
   TAX_YEAR_US, TAX_YEAR_IN, slugForRegion, regionForSlug,
@@ -269,7 +268,14 @@ export default function PayrollCalculator() {
           <a className="pay__btn" href="/contact">Talk to Puetto <ArrowRight size={18} /></a>
         </div>
 
-        <RelatedLinks currentPath={path} featured={['/retention-calculator', '/people-ops', '/calculators']} />
+        <div className="pay__related">
+          <h2>Related tools and guides</h2>
+          <div className="pay__related-grid">
+            <a href="/retention-calculator">Retention Calculator</a>
+            <a href="/calculators">All calculators</a>
+            <a href="/people-ops">People Ops</a>
+          </div>
+        </div>
       </section>
     </div>
   );
