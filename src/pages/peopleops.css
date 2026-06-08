@@ -85,8 +85,10 @@
   border-radius: 12px; cursor: pointer; text-decoration: none;
   transition: transform 0.06s ease, opacity 0.15s ease;
 }
-.pops__btn:hover { opacity: 0.88; border: none; }
 .pops__btn:active { transform: scale(0.98); }
+/* Override the generic .pops a rule (higher specificity) so button text/arrow stay white */
+.pops a.pops__btn { color: #fff; border-bottom: none; }
+.pops a.pops__btn:hover { color: #fff; border-bottom: none; opacity: 0.88; }
 
 /* CTA band */
 .pops__cta {
