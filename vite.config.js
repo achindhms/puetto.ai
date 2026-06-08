@@ -2,7 +2,6 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import sitemap from 'vite-plugin-sitemap'
 import { ALL_TOOL_LIBRARY_ROUTES } from './src/pages/abmToolsData'
-
 const routes = [
   '/',
   '/blog',
@@ -28,6 +27,12 @@ const routes = [
   '/abm-ops/fit-vs-intent',
   '/abm-ops/target-account-list-size',
   '/abm-ops/account-scoring-rubric',
+  '/people-ops',
+  '/people-ops/complete-guide',
+  '/people-ops/what-is-fractional-hr',
+  '/people-ops/hr-for-startups',
+  '/people-ops/people-operations-vs-hr',
+  '/people-ops/outsourcing-hr-pros-and-cons',
   '/calculators',
   '/abm-roi-calculator',
   '/webinar-roi-calculator',
@@ -39,7 +44,6 @@ const routes = [
   '/rice-calculator',
   ...ALL_TOOL_LIBRARY_ROUTES,
 ]
-
 export default defineConfig({
   plugins: [
     react(),
