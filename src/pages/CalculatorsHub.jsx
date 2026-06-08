@@ -13,6 +13,7 @@ const TOOLS = [
   { path: '/retention-calculator', title: 'Retention Calculator', desc: 'Compute NRR, GRR and logo retention, and model cohort retention curves and heatmaps.', tag: 'SaaS metrics', accent: 'b' },
   { path: '/rice-calculator', title: 'RICE Prioritization', desc: 'Score and rank your roadmap by Reach, Impact, Confidence and Effort, and spot quick wins.', tag: 'Product', accent: 'c' },
   { path: '/kano-calculator', title: 'Kano Model Analysis', desc: 'Categorize features into Must-Be, Performance and Attractive, and prioritize what delights.', tag: 'Product', accent: 'd' },
+  { path: '/payroll-calculator', title: 'Payroll Calculator', desc: 'Estimate take-home pay and taxes across all 50 US states, India and the UAE, with live per-period breakdowns.', tag: 'People Ops', accent: 'a' },
 ];
 
 function MiniCalcIcon({ accent }) {
