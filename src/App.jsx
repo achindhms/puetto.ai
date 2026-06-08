@@ -44,6 +44,7 @@ import PeopleOpsVsHr from './pages/PeopleOpsVsHr';
 import PeopleOpsOutsourcingHrProsCons from './pages/PeopleOpsOutsourcingHrProsCons';
 import PeopleOpsCompleteGuide from './pages/PeopleOpsCompleteGuide';
 import PayrollCalculator from './pages/PayrollCalculator';
+import PayrollGuide from './pages/PayrollGuide';
 
 
 function App() {
@@ -95,6 +96,7 @@ function App() {
           <Route path="/people-ops/complete-guide" element={<PeopleOpsCompleteGuide />} />
           <Route path="/payroll-calculator" element={<PayrollCalculator />} />
           <Route path="/payroll-calculator/:region" element={<PayrollCalculator />} />
+          <Route path="/payroll-calculator/:region/guide" element={<PayrollGuide />} />
         </Routes>
         <Footer />
       </div>
