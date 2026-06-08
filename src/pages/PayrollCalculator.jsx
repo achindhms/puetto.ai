@@ -269,7 +269,7 @@ export default function PayrollCalculator() {
           <a className="pay__btn" href="/contact">Talk to Puetto <ArrowRight size={18} /></a>
         </div>
 
-        <RelatedLinks currentPath={path} featured={['/employee-turnover-cost-calculator', '/people-ops', '/calculators']} />
+        <RelatedLinks currentPath={path} featured={['/retention-calculator', '/people-ops', '/calculators']} />
       </section>
     </div>
   );
