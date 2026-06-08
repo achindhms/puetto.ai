@@ -37,6 +37,12 @@ import AccountScoringRubric from './pages/AccountScoringRubric';
 import AbmToolLibrary from './pages/AbmToolLibrary';
 import AbmToolCategory from './pages/AbmToolCategory';
 import AbmToolReview from './pages/AbmToolReview';
+import PeopleOps from './pages/PeopleOps';
+import PeopleOpsWhatIsFractionalHr from './pages/PeopleOpsWhatIsFractionalHr';
+import PeopleOpsHrForStartups from './pages/PeopleOpsHrForStartups';
+import PeopleOpsVsHr from './pages/PeopleOpsVsHr';
+import PeopleOpsOutsourcingHrProsCons from './pages/PeopleOpsOutsourcingHrProsCons';
+
 
 function App() {
   return (
@@ -79,6 +85,11 @@ function App() {
           <Route path="/abm-ops/tools" element={<AbmToolLibrary />} />
 <Route path="/abm-ops/tools/:categorySlug" element={<AbmToolCategory />} />
 <Route path="/abm-ops/tools/:categorySlug/:toolSlug" element={<AbmToolReview />} />
+          <Route path="/people-ops" element={<PeopleOps />} />
+<Route path="/people-ops/what-is-fractional-hr" element={<PeopleOpsWhatIsFractionalHr />} />
+<Route path="/people-ops/hr-for-startups" element={<PeopleOpsHrForStartups />} />
+<Route path="/people-ops/people-operations-vs-hr" element={<PeopleOpsVsHr />} />
+<Route path="/people-ops/outsourcing-hr-pros-and-cons" element={<PeopleOpsOutsourcingHrProsCons />} />
         </Routes>
         <Footer />
       </div>
