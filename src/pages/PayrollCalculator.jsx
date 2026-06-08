@@ -2,7 +2,7 @@ import { useState, useEffect, useRef, useMemo } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { ArrowRight, AlertTriangle } from 'lucide-react';
-import RelatedLinks from './RelatedLinks';
+import RelatedLinks from '../components/RelatedLinks';
 import {
   US_STATES, INDIA, UAE, PERIODS, REGION_GROUPS,
   TAX_YEAR_US, TAX_YEAR_IN, slugForRegion, regionForSlug,
