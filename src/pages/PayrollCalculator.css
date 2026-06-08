@@ -1,0 +1,175 @@
+/* PayrollCalculator.css — all classes scoped under pay__ to prevent CSS bleed */
+
+.pay {
+  --pay-ink: #0a0a0a;
+  --pay-muted: #6b7280;
+  --pay-line: #e8e8ec;
+  --pay-surface: #f7f7f8;
+  --pay-cta: #7a2150;
+  --pay-grad: linear-gradient(100deg, #FF8A3D 0%, #FF4D6D 38%, #B14DFF 68%, #3D7BFF 100%);
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 7rem 1.25rem 5rem; /* fallback navbar clearance; JS refines */
+  color: #374151;
+}
+
+/* ---------- hero ---------- */
+.pay__hero { text-align: center; max-width: 760px; margin: 0 auto 1.5rem; }
+.pay__eyebrow {
+  font-size: 0.78rem; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.08em; color: var(--pay-cta); margin-bottom: 0.75rem;
+}
+.pay__title {
+  font-weight: 700; letter-spacing: -0.03em; color: var(--pay-ink);
+  font-size: clamp(2.25rem, 5.5vw, 4rem); line-height: 1.05; margin: 0 0 0.75rem;
+}
+.pay__grad {
+  background: var(--pay-grad);
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent; color: transparent;
+}
+.pay__intro { font-size: 1.1rem; color: var(--pay-muted); margin: 0; }
+
+/* ---------- verify banner ---------- */
+.pay__banner {
+  display: flex; align-items: flex-start; gap: 8px;
+  max-width: 860px; margin: 0 auto 2rem;
+  background: var(--pay-surface); border: 1px solid var(--pay-line);
+  border-radius: 12px; padding: 12px 16px;
+  font-size: 0.86rem; color: var(--pay-muted); line-height: 1.5;
+}
+.pay__banner svg { flex-shrink: 0; margin-top: 2px; color: #b45309; }
+.pay__banner a { color: var(--pay-cta); font-weight: 600; }
+
+/* ---------- layout ---------- */
+.pay__grid {
+  display: grid; grid-template-columns: 0.85fr 1.15fr; gap: 1.5rem;
+  align-items: start;
+}
+
+/* ---------- inputs ---------- */
+.pay__inputs {
+  display: flex; flex-direction: column; gap: 1.1rem;
+  border: 1px solid var(--pay-line); border-radius: 18px; padding: 24px; background: #fff;
+}
+.pay__field { display: flex; flex-direction: column; gap: 0.5rem; }
+.pay__field > span { font-size: 0.85rem; font-weight: 600; color: var(--pay-ink); }
+.pay__select, .pay__num {
+  width: 100%; box-sizing: border-box;
+  border: 1px solid var(--pay-line); border-radius: 10px;
+  padding: 11px 12px; font-size: 0.98rem; color: var(--pay-ink); background: #fff;
+  font-family: inherit;
+}
+.pay__select:focus, .pay__num:focus { outline: none; border-color: #B14DFF; }
+.pay__amount { display: flex; gap: 8px; }
+.pay__amount .pay__num { flex: 1; }
+.pay__select--sm { width: auto; min-width: 118px; }
+
+.pay__toggle { display: flex; gap: 6px; }
+.pay__toggle button {
+  flex: 1; padding: 10px; border: 1px solid var(--pay-line); border-radius: 10px;
+  background: #fff; color: var(--pay-muted); font-weight: 600; cursor: pointer;
+  font-family: inherit; font-size: 0.9rem; transition: all 0.12s ease;
+}
+.pay__toggle button.on { background: var(--pay-ink); color: #fff; border-color: var(--pay-ink); }
+
+.pay input[type="range"] {
+  -webkit-appearance: none; appearance: none; height: 6px; border-radius: 999px;
+  background: var(--pay-line); outline: none; padding: 0;
+}
+.pay input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none; appearance: none; width: 20px; height: 20px;
+  border-radius: 50%; background: var(--pay-ink); cursor: pointer;
+  border: 3px solid #fff; box-shadow: 0 1px 4px rgba(0,0,0,0.25);
+}
+.pay input[type="range"]::-moz-range-thumb {
+  width: 20px; height: 20px; border-radius: 50%; background: var(--pay-ink);
+  cursor: pointer; border: 3px solid #fff;
+}
+
+/* ---------- results ---------- */
+.pay__results {
+  border: 1px solid var(--pay-line); border-radius: 18px; padding: 24px;
+  background: #fff;
+}
+.pay__period-tabs { display: flex; gap: 6px; margin-bottom: 1.25rem; flex-wrap: wrap; }
+.pay__period-tabs button {
+  padding: 7px 14px; border: 1px solid var(--pay-line); border-radius: 999px;
+  background: #fff; color: var(--pay-muted); font-weight: 600; cursor: pointer;
+  font-family: inherit; font-size: 0.84rem; transition: all 0.12s ease;
+}
+.pay__period-tabs button.on { background: var(--pay-ink); color: #fff; border-color: var(--pay-ink); }
+
+.pay__headline {
+  text-align: center; padding: 1.5rem 1rem; border-radius: 14px;
+  background: var(--pay-surface); margin-bottom: 1.25rem;
+}
+.pay__headline-label { display: block; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--pay-muted); }
+.pay__headline-stat {
+  display: block; font-size: clamp(2.4rem, 6vw, 3.4rem); font-weight: 700;
+  letter-spacing: -0.03em; color: var(--pay-ink); margin: 0.3rem 0; line-height: 1;
+}
+.pay__headline-sub { display: block; font-size: 0.92rem; color: var(--pay-muted); }
+
+.pay__stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.75rem; margin-bottom: 1.5rem; }
+.pay__stat {
+  border: 1px solid var(--pay-line); border-radius: 12px; padding: 12px;
+  text-align: center; display: flex; flex-direction: column; gap: 4px;
+}
+.pay__stat span { font-size: 0.72rem; color: var(--pay-muted); text-transform: uppercase; letter-spacing: 0.04em; }
+.pay__stat b { font-size: 1.1rem; color: var(--pay-ink); font-weight: 700; }
+
+.pay__breakdown { display: flex; flex-direction: column; gap: 0.85rem; }
+.pay__bd-row { display: flex; flex-direction: column; gap: 6px; }
+.pay__bd-head { display: flex; justify-content: space-between; align-items: baseline; font-size: 0.92rem; }
+.pay__bd-head span { color: var(--pay-muted); }
+.pay__bd-head b { color: var(--pay-ink); font-weight: 700; }
+.pay__bd-bar { height: 6px; border-radius: 999px; background: var(--pay-surface); overflow: hidden; }
+.pay__bd-bar i { display: block; height: 100%; border-radius: 999px; background: var(--pay-grad); min-width: 2px; }
+
+.pay__info {
+  margin-top: 1.25rem; padding: 12px 14px; border-radius: 12px;
+  border: 1px dashed var(--pay-line); font-size: 0.9rem; color: var(--pay-muted);
+}
+.pay__info b { color: var(--pay-ink); }
+
+/* ---------- content ---------- */
+.pay__content { max-width: 760px; margin: 3.5rem auto 0; }
+.pay__content h2 {
+  font-weight: 700; letter-spacing: -0.02em; color: var(--pay-ink);
+  font-size: 1.5rem; margin: 2rem 0 0.9rem;
+}
+.pay__content p { font-size: 1.05rem; line-height: 1.7; margin: 0 0 1rem; }
+
+.pay__faq { display: flex; flex-direction: column; gap: 0.6rem; }
+.pay__faq-item { border: 1px solid var(--pay-line); border-radius: 12px; padding: 4px 16px; }
+.pay__faq-item summary {
+  cursor: pointer; padding: 12px 0; font-weight: 600; color: var(--pay-ink);
+  list-style: none; font-size: 1rem;
+}
+.pay__faq-item summary::-webkit-details-marker { display: none; }
+.pay__faq-item summary::after { content: '+'; float: right; color: var(--pay-muted); font-weight: 400; }
+.pay__faq-item[open] summary::after { content: '\2212'; }
+.pay__faq-item p { padding-bottom: 14px; margin: 0; color: var(--pay-muted); font-size: 0.98rem; }
+
+.pay__cta {
+  margin: 2.5rem 0; padding: 28px; border-radius: 18px;
+  background: var(--pay-surface); border: 1px solid var(--pay-line); text-align: center;
+}
+.pay__cta p { margin: 0 0 1rem; font-weight: 600; color: var(--pay-ink); }
+.pay__btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--pay-ink); color: #fff; border: none;
+  padding: 14px 28px; font-size: 1rem; font-weight: 600;
+  border-radius: 12px; cursor: pointer; text-decoration: none;
+  transition: transform 0.06s ease, opacity 0.15s ease;
+}
+.pay__btn:hover { opacity: 0.88; }
+.pay__btn:active { transform: scale(0.98); }
+
+/* ---------- responsive ---------- */
+@media (max-width: 860px) {
+  .pay { padding-top: 6rem; }
+  .pay__grid { grid-template-columns: 1fr; }
+  .pay__stats { grid-template-columns: 1fr; }
+}
