@@ -43,6 +43,7 @@ import PeopleOpsHrForStartups from './pages/PeopleOpsHrForStartups';
 import PeopleOpsVsHr from './pages/PeopleOpsVsHr';
 import PeopleOpsOutsourcingHrProsCons from './pages/PeopleOpsOutsourcingHrProsCons';
 import PeopleOpsCompleteGuide from './pages/PeopleOpsCompleteGuide';
+import PayrollCalculator from './pages/PayrollCalculator';
 
 
 function App() {
@@ -92,6 +93,8 @@ function App() {
 <Route path="/people-ops/people-operations-vs-hr" element={<PeopleOpsVsHr />} />
 <Route path="/people-ops/outsourcing-hr-pros-and-cons" element={<PeopleOpsOutsourcingHrProsCons />} />
           <Route path="/people-ops/complete-guide" element={<PeopleOpsCompleteGuide />} />
+          <Route path="/payroll-calculator" element={<PayrollCalculator />} />
+          <Route path="/payroll-calculator/:region" element={<PayrollCalculator />} />
         </Routes>
         <Footer />
       </div>
