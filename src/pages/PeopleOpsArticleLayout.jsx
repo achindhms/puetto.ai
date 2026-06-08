@@ -17,6 +17,12 @@ export const PILLAR = {
 
 export const CLUSTER = [
   {
+    path: '/people-ops/complete-guide',
+    title: 'People Operations: The Complete Guide',
+    blurb: 'The full guide to People Ops: definition, stats, lifecycle, terminology, tech stack, and the job market.',
+    built: true,
+  },
+  {
     path: '/people-ops/what-is-fractional-hr',
     title: 'What Is Fractional HR?',
     blurb: 'A plain definition of fractional HR, how it works, and when it beats a full-time hire.',
