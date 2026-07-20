@@ -257,6 +257,66 @@
   .progress.show{ display:block; }
   .progress-bar{ height:100%; background: var(--accent-gradient); width:0%; transition: width .1s linear; }
   .actions{ display:flex; flex-direction:column; gap:8px; }
+
+  .export-row{
+    display:flex;
+    gap: 10px;
+    margin-top: 28px;
+    width: 100%;
+    max-width: 420px;
+  }
+  .export-row .btn{ flex:1; width:auto; }
+  .icon-btn{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap: 8px;
+    width:auto;
+  }
+  .icon-btn svg{ width:16px; height:16px; flex-shrink:0; }
+  #progressWrap{ width:100%; max-width:420px; }
+
+  .select-swatch-wrap{ position:relative; }
+  .select-swatch-wrap select{ padding-left: 38px; }
+  .select-swatch{
+    position:absolute;
+    left:11px;
+    top:50%;
+    transform:translateY(-50%);
+    width:18px;
+    height:18px;
+    border-radius:50%;
+    box-shadow:0 0 0 1px var(--border-strong);
+    pointer-events:none;
+  }
+
+  .btn-liquid{
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.14);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    transition: transform .18s ease, box-shadow .18s ease, filter .18s ease;
+  }
+  .btn-liquid.icon-btn.btn:not(.secondary){
+    background: linear-gradient(135deg, rgba(245,166,35,0.88), rgba(224,87,110,0.88), rgba(139,107,224,0.88));
+    box-shadow: 0 6px 20px rgba(224,87,110,0.35), inset 0 1px 0 rgba(255,255,255,0.28);
+  }
+  .btn-liquid.secondary{
+    background: rgba(255,255,255,0.05);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
+  }
+  .btn-liquid::before{
+    content:'';
+    position:absolute;
+    top:-60%; left:-10%;
+    width:120%; height:100%;
+    background: radial-gradient(ellipse at top, rgba(255,255,255,0.35), transparent 65%);
+    pointer-events:none;
+  }
+  .btn-liquid:hover{ transform: translateY(-1px); filter: brightness(1.06); }
+  .btn-liquid:active{ transform: scale(0.97); }
+  .btn-liquid:disabled{ transform:none; filter:none; }
   .custom-field-row{ display:flex; gap:6px; margin-bottom:6px; }
   .custom-field-row input{ font-size:12.5px; padding:7px 8px; }
   .custom-field-remove{
@@ -396,23 +456,19 @@ I came across {{company}} recently and wanted to reach out.</textarea>
         <span class="panel-title">Select Ink &amp; Paper Style</span>
       </div>
       <label class="field-label">Ink color</label>
-      <div class="inkrow" id="inkSwatches"></div>
+      <div class="select-swatch-wrap">
+        <span class="select-swatch" id="inkSwatchPreview"></span>
+        <select id="inkSelect"></select>
+      </div>
       <label class="field-label" style="margin-top:12px;">Paper</label>
-      <div class="swatches" id="paperSwatches"></div>
+      <div class="select-swatch-wrap">
+        <span class="select-swatch" id="paperSwatchPreview"></span>
+        <select id="paperSelect"></select>
+      </div>
       <div style="margin-top:12px;">
         <label class="field-label">Background image (optional)</label>
         <input type="file" id="bgInput" accept="image/*">
       </div>
-    </div>
-
-    <div class="panel actions">
-      <div class="panel-head">
-        <span class="panel-num">06</span>
-        <span class="panel-title">Export as PNG or Bulk Zip</span>
-      </div>
-      <button class="btn secondary" id="downloadOne" disabled>Download this postcard</button>
-      <button class="btn" id="downloadAll" disabled>Download all as ZIP</button>
-      <div class="progress" id="progressWrap"><div class="progress-bar" id="progressBar"></div></div>
     </div>
   </div>
 
@@ -428,6 +484,18 @@ I came across {{company}} recently and wanted to reach out.</textarea>
       <button class="navbtn" id="nextBtn">&#8594;</button>
     </div>
     <div class="empty-note" id="emptyNote">Upload a CSV to start. Each row becomes one postcard &mdash; drop in name and company, and every card personalizes itself.</div>
+
+    <div class="export-row">
+      <button class="btn secondary icon-btn btn-liquid" id="downloadOne" disabled title="Download this postcard as a PNG">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Download
+      </button>
+      <button class="btn secondary icon-btn btn-liquid" id="downloadAll" disabled title="Download all recipients as a ZIP">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8v13H3V8"/><path d="M1 3h22v5H1z"/><path d="M10 12h4"/></svg>
+        Download all as ZIP
+      </button>
+    </div>
+    <div class="progress" id="progressWrap"><div class="progress-bar" id="progressBar"></div></div>
   </div>
 
 </div>
@@ -513,24 +581,42 @@ function buildFontList(){
   };
 }
 function buildInkSwatches(){
-  const wrap = document.getElementById('inkSwatches');
-  INKS.forEach(c=>{
-    const s = document.createElement('div');
-    s.className = 'swatch' + (c===selectedInk ? ' active':'');
-    s.style.background = c;
-    s.onclick = ()=>{ selectedInk = c; refreshSwatches(); render(); };
-    wrap.appendChild(s);
+  const sel = document.getElementById('inkSelect');
+  const preview = document.getElementById('inkSwatchPreview');
+  sel.innerHTML = '';
+  INKS.forEach((c, i)=>{
+    const opt = document.createElement('option');
+    opt.value = i;
+    opt.textContent = c;
+    opt.style.background = c;
+    if(c === selectedInk) opt.selected = true;
+    sel.appendChild(opt);
   });
+  preview.style.background = selectedInk;
+  sel.onchange = ()=>{
+    selectedInk = INKS[parseInt(sel.value, 10)];
+    preview.style.background = selectedInk;
+    render();
+  };
 }
 function buildPaperSwatches(){
-  const wrap = document.getElementById('paperSwatches');
-  PAPERS.forEach(p=>{
-    const s = document.createElement('div');
-    s.className = 'swatch' + (p===selectedPaper ? ' active':'');
-    s.style.background = p.base;
-    s.onclick = ()=>{ selectedPaper = p; refreshSwatches(); render(); };
-    wrap.appendChild(s);
+  const sel = document.getElementById('paperSelect');
+  const preview = document.getElementById('paperSwatchPreview');
+  sel.innerHTML = '';
+  PAPERS.forEach((p, i)=>{
+    const opt = document.createElement('option');
+    opt.value = i;
+    opt.textContent = p.id.charAt(0).toUpperCase() + p.id.slice(1);
+    opt.style.background = p.base;
+    if(p === selectedPaper) opt.selected = true;
+    sel.appendChild(opt);
   });
+  preview.style.background = selectedPaper.base;
+  sel.onchange = ()=>{
+    selectedPaper = PAPERS[parseInt(sel.value, 10)];
+    preview.style.background = selectedPaper.base;
+    render();
+  };
 }
 function buildLayoutToggle(){
   const wrap = document.getElementById('layoutToggle');
@@ -571,6 +657,8 @@ function buildRecipientModeToggle(){
       document.getElementById('bulkSection').style.display = recipientMode === 'bulk' ? 'block' : 'none';
       document.getElementById('singleSection').style.display = recipientMode === 'single' ? 'block' : 'none';
       document.getElementById('navControls').style.display = recipientMode === 'single' ? 'none' : (rows.length ? 'flex' : 'none');
+      document.getElementById('downloadOne').style.display = recipientMode === 'single' ? 'flex' : 'none';
+      document.getElementById('downloadAll').style.display = recipientMode === 'bulk' ? 'flex' : 'none';
 
       if(recipientMode === 'single'){
         currentIndex = 0;
@@ -589,12 +677,13 @@ function buildRecipientModeToggle(){
       }
     };
   });
+  document.getElementById('downloadOne').style.display = recipientMode === 'single' ? 'flex' : 'none';
+  document.getElementById('downloadAll').style.display = recipientMode === 'bulk' ? 'flex' : 'none';
 }
 
 function refreshSingleModeButtons(){
-  const hasName = !!(rows[0] && rows[0].name && rows[0].name.trim());
-  document.getElementById('downloadOne').disabled = !hasName;
-  document.getElementById('downloadAll').disabled = true; // ZIP export doesn't apply to a single recipient
+  document.getElementById('downloadOne').disabled = false;
+  document.getElementById('downloadAll').disabled = true; // ZIP only applies once a CSV is uploaded in Bulk mode
 }
 
 // Rebuilds `columns` and `rows[0]` from the Name/Company inputs plus any custom fields,
@@ -657,15 +746,6 @@ function wireSingleRecipientInputs(){
   document.getElementById('addCustomField').addEventListener('click', ()=>{
     customFields.push({ key:'', value:'' });
     renderCustomFieldsList();
-  });
-}
-
-function refreshSwatches(){
-  [...document.querySelectorAll('#inkSwatches .swatch')].forEach((s,i)=>{
-    s.classList.toggle('active', INKS[i]===selectedInk);
-  });
-  [...document.querySelectorAll('#paperSwatches .swatch')].forEach((s,i)=>{
-    s.classList.toggle('active', PAPERS[i]===selectedPaper);
   });
 }
 
