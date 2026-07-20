@@ -4,24 +4,25 @@
 //
 // How it works:
 // 1. Serves the already-built dist/ folder locally (vite preview).
-// 2. Opens each route in headless Chrome (puppeteer) and waits for
-//    React to finish rendering into #root.
+// 2. Opens each route in headless Chrome (puppeteer-core + @sparticuz/chromium,
+//    a Chromium build made for constrained/serverless build environments
+//    like Vercel's, since the full desktop `puppeteer` package's bundled
+//    Chrome is missing shared libraries there) and waits for React to
+//    finish rendering into #root.
 // 3. Saves the fully-rendered HTML to dist/<route>/index.html.
 //
 // Vercel serves matching static files before falling back to the SPA
 // rewrite in vercel.json, so this doesn't break client-side routing —
 // it just gives every route a real HTML snapshot as the first paint.
-
-import puppeteer from 'puppeteer'
+import puppeteer from 'puppeteer-core'
+import chromium from '@sparticuz/chromium'
 import { preview } from 'vite'
 import fs from 'fs'
 import path from 'path'
 import { fileURLToPath } from 'url'
 import { ALL_TOOL_LIBRARY_ROUTES } from '../src/pages/abmToolsData.js'
-
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const distDir = path.resolve(__dirname, '../dist')
-
 const routes = [
   '/',
   '/blog',
@@ -66,21 +67,18 @@ const routes = [
   '/payroll-calculator',
   ...ALL_TOOL_LIBRARY_ROUTES,
 ]
-
 async function run() {
   console.log(`Prerendering ${routes.length} routes...`)
-
   const previewServer = await preview({ preview: { port: 4173 } })
   const baseUrl = `http://localhost:4173`
-
   const browser = await puppeteer.launch({
-    headless: 'new',
-    args: ['--no-sandbox', '--disable-setuid-sandbox'],
+    args: chromium.args,
+    defaultViewport: chromium.defaultViewport,
+    executablePath: await chromium.executablePath(),
+    headless: chromium.headless,
   })
-
   let succeeded = 0
   let failed = []
-
   for (const route of routes) {
     const page = await browser.newPage()
     try {
@@ -91,9 +89,7 @@ async function run() {
       // Give React a moment to finish painting async content (e.g. data-driven pages).
       await page.waitForSelector('#root', { timeout: 5000 })
       await new Promise((r) => setTimeout(r, 300))
-
       const html = await page.content()
-
       const outDir =
         route === '/' ? distDir : path.join(distDir, route.replace(/^\//, ''))
       fs.mkdirSync(outDir, { recursive: true })
@@ -105,17 +101,14 @@ async function run() {
       await page.close()
     }
   }
-
   await browser.close()
   await previewServer.httpServer.close()
-
   console.log(`Done: ${succeeded}/${routes.length} routes prerendered.`)
   if (failed.length) {
     console.warn('Failed routes:')
     failed.forEach((f) => console.warn(`  ${f.route}: ${f.error}`))
   }
 }
-
 run().catch((err) => {
   console.error('Prerender failed:', err)
   process.exit(1)
