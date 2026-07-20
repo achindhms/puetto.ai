@@ -8,24 +8,49 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
 <style>
+  .puetto-watermark{
+    position: fixed;
+    bottom: 20px;
+    right: 24px;
+    z-index: 50;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 12px 20px;
+    font-family: 'Inter', -apple-system, sans-serif;
+    font-size: 15px;
+    color: var(--text-muted);
+    text-decoration: none;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+    transition: border-color .15s, color .15s;
+  }
+  .puetto-watermark:hover{
+    border-color: var(--accent);
+    color: var(--text);
+  }
+  .puetto-watermark b{ color: var(--text); font-weight: 600; }
+
   :root{
-    --bg: #14161d;
-    --card: #1b1e27;
-    --card-hover: #20232d;
-    --border: #2b2e3a;
-    --border-strong: #3a3e4c;
-    --text: #f3f4f6;
-    --text-muted: #9297a6;
-    --text-faint: #62666f;
-    --accent: #f5a623;
-    --accent-wash: rgba(245,166,35,0.12);
+    --bg: #0a0a0a;
+    --card: #141414;
+    --card-hover: #1c1c1c;
+    --border: #262626;
+    --border-strong: #333333;
+    --text: #f5f5f5;
+    --text-muted: #9a9a9a;
+    --text-faint: #6b6b6b;
+    --accent: #e0576e;
+    --accent-gradient: linear-gradient(90deg, #f5a623 0%, #e0576e 50%, #8b6be0 100%);
+    --accent-wash: rgba(224,87,110,0.12);
     --white: #ffffff;
   }
   *{ box-sizing:border-box; }
   html,body{ margin:0; padding:0; }
   body{
     background: var(--bg);
-    background-image: radial-gradient(circle at 15% 0%, rgba(245,166,35,0.06), transparent 40%);
     color: var(--text);
     font-family: 'Inter', -apple-system, sans-serif;
     min-height: 100vh;
@@ -33,7 +58,27 @@
     justify-content:center;
     padding: 40px 20px;
     -webkit-font-smoothing: antialiased;
+    position: relative;
+    overflow-x: hidden;
   }
+  body.paper-layout .stack-wrap::before{
+    content:'';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 520px;
+    height: 520px;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(circle,
+      rgba(214,249,92,0.55) 0%,
+      rgba(224,87,110,0.40) 40%,
+      rgba(139,107,224,0.35) 70%,
+      rgba(139,107,224,0) 100%);
+    filter: blur(90px);
+    z-index: 0;
+    pointer-events: none;
+  }
+  .app{ position: relative; z-index: 1; }
   .app{
     width:100%;
     max-width: 1240px;
@@ -61,6 +106,13 @@
     color: var(--text-muted);
     margin-bottom: 4px;
   }
+  .gradient-text{
+    background: linear-gradient(90deg, #f5a623 0%, #e0576e 45%, #8b6be0 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
 
   .rail{ display:flex; flex-direction:column; gap: 16px; }
 
@@ -69,6 +121,7 @@
     border: 1px solid var(--border);
     border-radius: 14px;
     padding: 18px 18px 20px;
+    box-shadow: 0 1px 2px rgba(20,20,20,0.03);
   }
   .panel-head{
     display:flex;
@@ -80,7 +133,7 @@
     font-family:'Inter', sans-serif;
     font-size: 13px;
     font-weight: 700;
-    color: var(--accent);
+    color: var(--text);
     line-height:1;
   }
   .panel-title{
@@ -107,7 +160,7 @@
   .row{ display:flex; gap: 8px; margin-bottom: 8px; }
   select, textarea, input[type=text]{
     width:100%;
-    background: #14161d;
+    background: #0a0a0a;
     border: 1px solid var(--border-strong);
     color: var(--text);
     border-radius: 9px;
@@ -126,7 +179,7 @@
   .chips{ display:flex; flex-wrap:wrap; gap: 6px; margin-top: 10px; }
   .chip{
     font-size: 12px;
-    background: #14161d;
+    background: #0a0a0a;
     border: 1px solid var(--border-strong);
     color: var(--text);
     padding: 5px 10px;
@@ -149,7 +202,7 @@
   .fontlist{ display:flex; flex-direction:column; gap:6px; }
   .fontbtn{
     text-align:left;
-    background:#14161d;
+    background:#0a0a0a;
     border:1px solid var(--border-strong);
     color: var(--text);
     padding: 10px 12px;
@@ -158,12 +211,16 @@
     font-size: 19px;
   }
   .fontbtn:hover{ border-color: var(--text-muted); }
-  .fontbtn.active{ border-color: var(--accent); background: var(--accent-wash); }
+  .fontbtn.active{
+    border: 2px solid transparent;
+    border-image: var(--accent-gradient) 1;
+    background: var(--accent-wash);
+  }
   .inkrow{ display:flex; gap:9px; }
   .layout-toggle{ display:flex; gap:8px; }
   .layoutbtn{
     flex:1;
-    background:#14161d;
+    background:#0a0a0a;
     border:1px solid var(--border-strong);
     color: var(--text);
     padding: 9px 8px;
@@ -173,11 +230,16 @@
     font-size: 13px;
   }
   .layoutbtn:hover{ border-color: var(--text-muted); }
-  .layoutbtn.active{ border-color: var(--accent); background: var(--accent-wash); font-weight:600; color: var(--accent); }
+  .layoutbtn.active{
+    border: 2px solid transparent;
+    border-image: var(--accent-gradient) 1;
+    font-weight:600;
+    color: var(--text);
+  }
   .btn{
     width:100%;
-    background: var(--white);
-    color: #14161d;
+    background: var(--accent-gradient);
+    color: #ffffff;
     border:none;
     padding: 11px;
     border-radius: 9px;
@@ -187,38 +249,40 @@
     cursor:pointer;
     letter-spacing: 0.01em;
   }
-  .btn:hover{ background: #e2e3e6; }
+  .btn:hover{ filter: brightness(0.92); }
   .btn:disabled{ opacity:0.3; cursor:not-allowed; }
   .btn.secondary{ background: transparent; border: 1px solid var(--border-strong); color: var(--text); }
   .btn.secondary:hover{ border-color: var(--text-muted); background: var(--card-hover); }
   .progress{ height: 5px; background: var(--border); border-radius: 4px; overflow:hidden; margin-top:10px; display:none; }
   .progress.show{ display:block; }
-  .progress-bar{ height:100%; background: var(--accent); width:0%; transition: width .1s linear; }
+  .progress-bar{ height:100%; background: var(--accent-gradient); width:0%; transition: width .1s linear; }
   .actions{ display:flex; flex-direction:column; gap:8px; }
   .custom-field-row{ display:flex; gap:6px; margin-bottom:6px; }
   .custom-field-row input{ font-size:12.5px; padding:7px 8px; }
   .custom-field-remove{
-    background:#14161d; border:1px solid var(--border-strong); color: var(--text-muted);
+    background:#0a0a0a; border:1px solid var(--border-strong); color: var(--text-muted);
     width:32px; border-radius:9px; cursor:pointer; font-size:13px; flex-shrink:0;
   }
   .custom-field-remove:hover{ border-color: var(--accent); color: var(--accent); }
 
   /* STAGE */
-  .stage{ display:flex; flex-direction:column; align-items:center; padding-top: 46px; }
+  .stage{ display:flex; flex-direction:column; align-items:center; padding-top: 46px; position: relative; z-index: 1; }
   .stack-wrap{ position:relative; width: 100%; max-width: 420px; aspect-ratio: 4/5; }
   .stack-shadow{
     position:absolute; inset: 10px 4px 0 4px;
-    background: #23262f; border-radius: 6px;
+    background: #232323; border-radius: 6px;
     transform: rotate(2.4deg); opacity:0.8;
+    z-index: 1;
   }
   .stack-shadow.s2{ inset: 16px -2px 0 10px; transform: rotate(-2.1deg); opacity:0.5; }
   canvas#card{
     position:relative; width:100%; height:100%;
     border-radius: 6px;
-    box-shadow: 0 22px 50px rgba(0,0,0,0.5), 0 2px 10px rgba(0,0,0,0.3);
+    box-shadow: 0 22px 50px rgba(0,0,0,0.55), 0 2px 10px rgba(0,0,0,0.35);
     display:block;
+    z-index: 1;
   }
-  .nav{ display:flex; align-items:center; gap: 18px; margin-top: 24px; }
+  .nav{ display:flex; align-items:center; gap: 18px; margin-top: 24px; position: relative; z-index: 1; }
   .navbtn{
     background:var(--card); border:1px solid var(--border-strong); color: var(--text);
     width: 38px; height:38px; border-radius: 50%; cursor:pointer; font-size: 16px;
@@ -229,6 +293,7 @@
   .empty-note{
     margin-top: 30px; text-align:center; color: var(--text-faint); font-size: 13.5px;
     max-width: 340px; line-height:1.6;
+    position: relative; z-index: 1;
   }
 </style>
 </head>
@@ -237,7 +302,7 @@
 
   <div class="rail">
     <div class="brand">
-      <h1>Send Handwritten Notes to Prospects</h1>
+      <h1>Send Handwritten <span class="gradient-text">Notes to Prospects</span></h1>
       <div class="eyebrow">Handwritten &middot; Personalized &middot; Bulk</div>
     </div>
 
@@ -478,6 +543,7 @@ function buildLayoutToggle(){
       canvas.width = layoutMode === 'note' ? 1000 : 1200;
       canvas.height = layoutMode === 'note' ? 1250 : 800;
       refreshLogoFieldVisibility();
+      document.body.classList.toggle('paper-layout', layoutMode === 'note');
       if(recipientMode === 'single') syncSingleRow(); else render();
     };
   });
@@ -485,6 +551,7 @@ function buildLayoutToggle(){
   canvas.width = layoutMode === 'note' ? 1000 : 1200;
   canvas.height = layoutMode === 'note' ? 1250 : 800;
   refreshLogoFieldVisibility();
+  document.body.classList.toggle('paper-layout', layoutMode === 'note');
 }
 
 // Logo/photo is a Postcard-only feature; show its inputs only when that layout is active.
@@ -1094,5 +1161,6 @@ if(recipientMode === 'single'){
   render();
 }
 </script>
+<a href="https://puetto.com" target="_blank" rel="noopener" class="puetto-watermark">Built by <b>Puetto</b></a>
 </body>
 </html>
