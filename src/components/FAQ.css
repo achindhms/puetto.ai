@@ -44,15 +44,9 @@
   color: var(--text-color);
 }
 
-.faq-answer {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.3s ease;
-}
-
-.faq-item.open .faq-answer {
-  max-height: 200px;
-}
+.faq-question { list-style: none; }
+.faq-question::-webkit-details-marker { display: none; }
+.faq-item[open] .faq-question svg { transform: rotate(180deg); }
 
 .faq-answer p {
   padding-bottom: 1.5rem;

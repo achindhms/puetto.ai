@@ -1,115 +1,58 @@
-// Prerenders every route into dist/<route>/index.html so the site has
-// real HTML content with JavaScript disabled (and for crawlers that
-// don't execute JS). Runs after `vite build` via the "postbuild" script.
-//
-// How it works:
-// 1. Serves the already-built dist/ folder locally (vite preview).
-// 2. Opens each route in headless Chrome (puppeteer-core + @sparticuz/chromium,
-//    a Chromium build made for constrained/serverless build environments
-//    like Vercel's, since the full desktop `puppeteer` package's bundled
-//    Chrome is missing shared libraries there) and waits for React to
-//    finish rendering into #root.
-// 3. Saves the fully-rendered HTML to dist/<route>/index.html.
-//
-// Vercel serves matching static files before falling back to the SPA
-// rewrite in vercel.json, so this doesn't break client-side routing —
-// it just gives every route a real HTML snapshot as the first paint.
+// Generate real HTML for every public React route. Never deploy partial output.
 import puppeteer from 'puppeteer-core'
 import chromium from '@sparticuz/chromium'
 import { preview } from 'vite'
-import fs from 'fs'
-import path from 'path'
-import { fileURLToPath } from 'url'
-import { ALL_TOOL_LIBRARY_ROUTES } from '../src/pages/abmToolsData.js'
-const __dirname = path.dirname(fileURLToPath(import.meta.url))
-const distDir = path.resolve(__dirname, '../dist')
-const routes = [
-  '/',
-  '/blog',
-  '/blog/the-rise-of-ai-driven-gtm-operations',
-  '/blog/real-time-analytics-for-smarter-engineering',
-  '/blog/building-a-scalable-lead-routing-system',
-  '/blog/automating-the-operating-manual',
-  '/abm-ops',
-  '/abm-ops/what-is-abm',
-  '/abm-ops/abm-strategy-framework',
-  '/abm-ops/abm-tech-stack',
-  '/abm-ops/abm-signal-data-crm',
-  '/abm-ops/abm-metrics-roi',
-  '/abm-ops/abm-vs-demand-gen',
-  '/abm-ops/strategy-account-selection',
-  '/abm-ops/how-to-build-b2b-icp',
-  '/abm-ops/icp-vs-buyer-persona',
-  '/abm-ops/validate-icp-closed-won-data',
-  '/abm-ops/icp-firmographic-technographic-behavioral',
-  '/abm-ops/common-icp-mistakes',
-  '/abm-ops/account-scoring-model',
-  '/abm-ops/abm-account-tiering',
-  '/abm-ops/fit-vs-intent',
-  '/abm-ops/target-account-list-size',
-  '/abm-ops/account-scoring-rubric',
-  '/abm-ops/tools',
-  '/people-ops',
-  '/people-ops/complete-guide',
-  '/people-ops/what-is-fractional-hr',
-  '/people-ops/hr-for-startups',
-  '/people-ops/people-operations-vs-hr',
-  '/people-ops/outsourcing-hr-pros-and-cons',
-  '/calculators',
-  '/abm-roi-calculator',
-  '/webinar-roi-calculator',
-  '/event-roi-calculator',
-  '/thought-leadership-roi-calculator',
-  '/linkedin-ads-roas-calculator',
-  '/retention-calculator',
-  '/kano-calculator',
-  '/rice-calculator',
-  '/payroll-calculator',
-  ...ALL_TOOL_LIBRARY_ROUTES,
-]
-async function run() {
-  console.log(`Prerendering ${routes.length} routes...`)
-  const previewServer = await preview({ preview: { port: 4173 } })
-  const baseUrl = `http://localhost:4173`
-  const browser = await puppeteer.launch({
+import fs from 'node:fs/promises'
+import path from 'node:path'
+import { fileURLToPath } from 'node:url'
+import { routes } from './routes.js'
+
+const distDir = fileURLToPath(new URL('../dist/', import.meta.url))
+let server
+let browser
+try {
+  server = await preview({ preview: { host: '127.0.0.1', port: 4173, strictPort: true } })
+  const origin = 'http://127.0.0.1:4173'
+  browser = await puppeteer.launch({
     args: chromium.args,
-    defaultViewport: chromium.defaultViewport,
     executablePath: await chromium.executablePath(),
-    headless: chromium.headless,
+    headless: true,
   })
-  let succeeded = 0
-  let failed = []
+  const snapshots = []
   for (const route of routes) {
     const page = await browser.newPage()
+    const errors = []
+    page.on('pageerror', error => errors.push(error.message))
     try {
-      await page.goto(`${baseUrl}${route}`, {
-        waitUntil: 'networkidle0',
-        timeout: 30000,
+      // Rendering must not depend on third-party images, analytics, or fonts.
+      await page.setRequestInterception(true)
+      page.on('request', request => {
+        if (request.url().startsWith(origin + '/') || request.url().startsWith('data:')) request.continue()
+        else request.abort()
       })
-      // Give React a moment to finish painting async content (e.g. data-driven pages).
-      await page.waitForSelector('#root', { timeout: 5000 })
-      await new Promise((r) => setTimeout(r, 300))
-      const html = await page.content()
-      const outDir =
-        route === '/' ? distDir : path.join(distDir, route.replace(/^\//, ''))
-      fs.mkdirSync(outDir, { recursive: true })
-      fs.writeFileSync(path.join(outDir, 'index.html'), html)
-      succeeded++
-    } catch (err) {
-      failed.push({ route, error: err.message })
+      await page.goto(origin + route, { waitUntil: 'networkidle0', timeout: 30000 })
+      await page.waitForFunction(() => {
+        const root = document.getElementById('root')
+        return root?.querySelector('h1') && root.textContent.trim().length > 200
+      }, { timeout: 10000 })
+      if (errors.length) throw new Error(errors.join('\n'))
+      snapshots.push({ route, html: await page.content() })
+      console.log(`Rendered ${snapshots.length}/${routes.length}: ${route}`)
     } finally {
       await page.close()
     }
   }
-  await browser.close()
-  await previewServer.httpServer.close()
-  console.log(`Done: ${succeeded}/${routes.length} routes prerendered.`)
-  if (failed.length) {
-    console.warn('Failed routes:')
-    failed.forEach((f) => console.warn(`  ${f.route}: ${f.error}`))
+  // Do not overwrite the SPA template until every route has been captured.
+  for (const { route, html } of snapshots) {
+    const directory = path.join(distDir, route.slice(1))
+    await fs.mkdir(directory, { recursive: true })
+    await fs.writeFile(path.join(directory, 'index.html'), html)
   }
+  console.log(`Prerendered all ${snapshots.length} routes.`)
+} catch (error) {
+  console.error('Prerender failed; refusing to publish incomplete HTML:', error)
+  process.exitCode = 1
+} finally {
+  await browser?.close()
+  if (server) await new Promise((resolve, reject) => server.httpServer.close(error => error ? reject(error) : resolve()))
 }
-run().catch((err) => {
-  console.error('Prerender failed:', err)
-  process.exit(1)
-})
