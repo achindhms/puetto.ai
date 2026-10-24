@@ -1,0 +1,30 @@
+/* Loaded only when JavaScript is disabled. Keep scroll-driven content readable. */
+.wwd-scroll-container, .wwd-sticky-frame, .wwd-main-card {
+  height: auto !important;
+  overflow: visible !important;
+}
+.wwd-sticky-frame { position: static; }
+.wwd-tabs-nav, .navbar-mobile-toggle { display: none !important; }
+.wwd-slide-content {
+  position: relative !important;
+  opacity: 1 !important;
+  transform: none !important;
+  pointer-events: auto !important;
+  margin-bottom: 2rem;
+}
+.step-content, .net-card, .tool-card, .animated-tooltip {
+  opacity: 1 !important;
+  animation: none !important;
+  transform: none !important;
+}
+/* Calculators show their initial example; changing values requires JavaScript. */
+body:has([class*="calculator"]) #root::before {
+  content: "JavaScript is off. You can read this page, but interactive calculations require JavaScript.";
+  display: block;
+  position: relative;
+  z-index: 100;
+  margin: 110px 1rem 1rem;
+  padding: 1rem;
+  background: #f1f5f9;
+  color: #0f172a;
+}

@@ -1,10 +1,8 @@
-import React, { useState } from 'react';
-import { ChevronDown, ChevronUp } from 'lucide-react';
+import React from 'react';
+import { ChevronDown } from 'lucide-react';
 import './FAQ.css';
 
 const FAQ = () => {
-  const [openIndex, setOpenIndex] = useState(null);
-
   const faqs = [
     { 
       question: 'We already have HubSpot and Notion. What would Puetto change?', 
@@ -28,10 +26,6 @@ const FAQ = () => {
     }
   ];
 
-  const toggleFAQ = (index) => {
-    setOpenIndex(openIndex === index ? null : index);
-  };
-
   return (
     <section className="faq-section fade-in">
       <div className="section-container">
@@ -42,15 +36,15 @@ const FAQ = () => {
           </div>
           <div className="faq-list">
             {faqs.map((faq, index) => (
-              <div className={`faq-item ${openIndex === index ? 'open' : ''}`} key={index}>
-                <div className="faq-question" onClick={() => toggleFAQ(index)}>
+              <details className="faq-item" key={index}>
+                <summary className="faq-question">
                   <span>{faq.question}</span>
-                  {openIndex === index ? <ChevronUp size={18} /> : <ChevronDown size={18} />}
-                </div>
+                  <ChevronDown size={18} />
+                </summary>
                 <div className="faq-answer">
                   <p>{faq.answer}</p>
                 </div>
-              </div>
+              </details>
             ))}
           </div>
         </div>
